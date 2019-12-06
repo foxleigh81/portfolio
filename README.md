@@ -1,6 +1,6 @@
 # Alex Foxleighs Portfolio 2020 edition
 
-> # WIP!!! Please note: This is a work in progress, the documents below do not yet reflect the actual state of the project
+> ## WIP!!! Please note: This is a work in progress, the documents below do not yet reflect the actual state of the project
 
 Every few years I updated my portfolio. This is usually in order to show examples of how I use the latest coding tools but it's also a good opportunity to brush up my skills. For example, this will be my first [TypeScript](https://www.typescriptlang.org/) project!
 
