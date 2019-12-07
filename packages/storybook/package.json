@@ -1,0 +1,44 @@
+{
+  "name": "@portfolio/storybook",
+  "version": "0.1.0",
+  "description": "The storybook package for my portfolio site",
+  "main": "./lib/index.js",
+  "module": "./lib-esm/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "start": "node index.js",
+    "libbuild": "tsc && tsc --build tsconfig.esm.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@storybook/react": "^5.2.8",
+    "@types/react": "^16.9.15",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/webpack-env": "^1.14.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "esm": "^3.2.25",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.18",
+    "source-map-loader": "^0.2.4"
+  },
+  "devDependencies": {
+    "@types/storybook__react": "^4.0.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.2.1",
+    "node-sass": "^4.13.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
+    "typescript": "^3.7.3"
+  }
+}

@@ -1,19 +1,19 @@
 {
-    "name": "@portfolio/themes",
-    "version": "0.1.0",
-    "main": "app.scss",
-    "license": "Apache-2.0",
-    "dependencies": {
-      "sass": "^1.23.0"
-    },
-    "devDependencies": {
-      "stylelint": "^11.1.1",
-      "prettier": "^1.18.2",
-      "stylelint-config-prettier": "^6.0.0",
-      "stylelint-prettier": "^1.1.1"
-    },
-    "scripts": {
-      "lint" : "stylelint *.scss"
-    }
+  "name": "@portfolio/themes",
+  "version": "0.1.0",
+  "main": "app.scss",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "sass": "^1.23.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "stylelint": "^11.1.1",
+    "stylelint-config-prettier": "^6.0.0",
+    "stylelint-prettier": "^1.1.1",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "lint": "stylelint *.scss"
   }
-  
+}

@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import './styles.scss'
+
 const PageHeader: React.FunctionComponent = props => { 
     return (
         <header>

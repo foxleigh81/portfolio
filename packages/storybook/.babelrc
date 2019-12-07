@@ -1,0 +1,7 @@
+{
+    "presets": ["@babel/react", "@babel/typescript", ["@babel/env", { "modules": false }]],
+    "plugins": [
+        ["react-hot-loader/babel", { "esm": true }],
+        ["@babel/plugin-transform-react-jsx"]
+    ]
+}
