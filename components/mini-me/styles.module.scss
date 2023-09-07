@@ -1,0 +1,35 @@
+.mini-me {
+  position: absolute;
+  z-index: 500;
+  height: 100%;
+  svg {
+    height: 100%;
+  }
+
+  &.w {
+    &-narrow {
+      @media (min-width: bp.$medium-small) {
+        width: 120px;
+      }
+      @media (min-width: bp.$medium) {
+        width: 100px;
+      }
+    }
+    &-regular {
+      @media (min-width: bp.$medium-small) {
+        width: 150px;
+      }
+      @media (min-width: bp.$medium) {
+        width: 200px;
+      }
+    }
+    &-wide {
+      @media (min-width: bp.$medium-small) {
+        width: 240px;
+      }
+      @media (min-width: bp.$medium) {
+        width: 300px;
+      }
+    }
+  }
+}

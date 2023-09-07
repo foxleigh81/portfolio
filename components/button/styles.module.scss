@@ -1,0 +1,22 @@
+.common {
+  cursor: pointer;
+  display: inline-block;
+  padding: $padding/2 $padding $padding/3;
+  font-size: type.$button-size;
+  font-weight: bold;
+  background-color: col.$primary;
+}
+
+.button {
+  @extend .common;
+  border-radius: .5rem;
+  
+  &-link {
+    @extend .common;
+    background-color: transparent;
+    border-bottom: none !important;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.alpha {
+  position: absolute;
+  z-index: 9999;
+  cursor: pointer;
+  &.corner {
+    top: 15px;
+    right: -60px;
+    transform: rotate(45deg);
+    width: 200px;
+    .close-icon {
+      display: none;
+    }
+    .banner {
+      background-color: col.$danger;
+    }
+
+    .roadmap { 
+      display: none;
+    }
+  }
+  &.more {
+    @media (min-width: bp.$medium-small) {
+      top: 20vh;
+      left: 20vw;
+      width: 60%;
+    }
+    box-shadow: 0px 0px 100px -40px col.$dark;
+    .close-icon {
+      float: right;
+    }
+  }
+  
+  .banner {
+    font-size: type.$heading-medium-size;
+    background-color: col.$info;
+    color: col.$light;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: $padding;
+    text-align: center;
+  }
+  .roadmap {
+    background-color: #fff;
+    padding: $padding;
+    text-align-last: left;
+    p, li {
+      color: col.$dark;
+      margin-bottom: $margin;
+      font-size: type.$body-size;
+    }
+    ul {
+      margin-left: margin(4);
+      list-style: disc;
+    }
+  }
+
+}
+
