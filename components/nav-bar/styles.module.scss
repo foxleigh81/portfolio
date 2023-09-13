@@ -1,0 +1,150 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @include util.mq(bp.$medium) {
+    flex-direction: row;
+  }
+}
+
+.burger {
+  display: block;
+  height: 2rem;
+  width: auto;
+  position: absolute;
+  top: spacing(1);
+  right: spacing(1);
+  z-index: 999;
+  cursor: pointer;
+  @include util.mq(bp.$medium) {
+    display: none;
+  }
+  &-bar {
+    display: block;
+    height: 4px;
+    width: 2.5rem;
+    background-color: col.$light;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.burger-open {
+  .burger-bar:nth-child(1) {
+    transform: rotate(45deg) translate(0.7rem, 0.6rem);
+  }
+  .burger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(0.7rem, -0.6rem);
+  }
+}
+
+.menu-closed {
+  display: none;
+  @include util.mq(bp.$medium) {
+    display: flex;
+  }
+}
+
+.menu-open {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: col.$primary;
+  z-index: 99;
+  @include util.mq(bp.$medium) {
+    position: relative;
+    height: auto;
+    background-color: transparent;
+  }
+}
+
+.links {
+  display: flex;
+  flex-grow: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  
+}
+
+.button-links {
+  composes: links;
+  position: absolute;
+  left: 0;
+  bottom: spacing(1);
+  width: 100%;
+  justify-content: center;
+  @include util.mq(bp.$medium) {
+    position: static;
+    width: auto;
+    justify-content: flex-start;
+    order: 1;
+  }
+}
+
+.nav-links {
+  composes: links;
+  gap: 2rem;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  .link {
+    padding: padding(1) padding(2);
+  }
+  @include util.mq(bp.$medium) {
+    width: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    order: 2;
+    .link {
+      padding: 0;
+    }
+  }
+}
+
+.social-links {
+  composes: links;
+  position: absolute;
+  top: spacing(1);
+  left: spacing(1);
+  @include util.mq(bp.$medium) {
+    position: static;
+    justify-content: flex-end;  
+    order: 3;
+  }
+}
+
+.icon {
+  height: 2rem;
+  width: auto;
+}
+
+.link {
+  color: col.$light;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: type.$large-text-size;
+  display: block;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid col.$primary-button;
+  }
+
+  &:active {
+    background-color: col.$primary-button;
+  }
+
+  &:focus-visible {
+    @include util.focus-visible();
+  }
+
+  @include util.mq(bp.$medium) {
+    font-size: type.$body-text-size;
+  }
+}
