@@ -31,11 +31,6 @@ const config: StorybookConfig = {
       directory: '../app',
       titlePrefix: 'Pages',
       files: '**/*.@(stories.tsx|mdx)'
-    },
-    {
-      directory: '../templates',
-      titlePrefix: 'Templates',
-      files: '**/*.@(stories.tsx|mdx)'
     }
   ],
   addons: [

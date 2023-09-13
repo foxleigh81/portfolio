@@ -29,6 +29,7 @@ import { ThemeProvider } from 'next-themes';
 import type { Decorator, Args } from '@storybook/react';
 
 import 'styles/index.scss';
+import '@fontsource/work-sans';
 import React from 'react';
 
 /*
