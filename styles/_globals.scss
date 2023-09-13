@@ -19,9 +19,7 @@
 body {
   background: col.$grey-200;
   color: col.$body-text;
-  font-family: "Open Sans", sans-serif;
-  font-size: type.$body-text-size;
-
+  font-family: 'Work Sans', sans-serif;
   p:not(:last-child) {
     margin-bottom: $paragraph-spacing;
   }
@@ -44,7 +42,6 @@ body {
 }
 
 main {
-  padding: padding(2);
 
   h1,
   h2,

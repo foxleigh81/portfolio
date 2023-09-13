@@ -39,6 +39,19 @@ $danger: hsl(8, 73%, 49%);
 $info: hsl(214, 60%, 48%);
 $error: $danger;
 
+/* Buttons */
+$primary-button: hsl(281, 93%, 49%);
+$primary-button-hover: hsl(279, 91%, 43%);
+$primary-button-text: hsl(0, 0%, 100%);
+
+$secondary-button: hsl(281, 100%, 93%);
+$secondary-button-hover: hsl(284, 92%, 95%);
+$secondary-button-text: hsl(281, 93%, 49%);
+
+$availability-button: hsla(0, 0%, 0%, 0.4);
+$unavailable-button-hover: hsla(0, 0%, 0%, 0.6);
+$unavailable-button-text: hsl(0, 0%, 100%);
+
 /* Inputs */
 $input-bg: $bg;
 $input-focus-bg: lighten($primary, 59%);
@@ -78,4 +91,4 @@ $border-dark: hsl(0, 0%, 44%);
 
 /* A11y compliance */
 
-$keyboard-focus: hsl(45, 100%, 51%);
+$keyboard-focus: hsl(308, 100%, 51%);
