@@ -4,45 +4,35 @@ import cx from 'classnames';
 /* Import Stylesheet */
 import styles from './styles.module.scss';
 
+export const variants = ['primary', 'secondary', 'availability'] as const;
+
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   /**
-   * What type of button is this?
-   * @default 'lozenge'
+   * The button variant
+   * @default 'primary'
    */
-  type?: 'lozenge' | 'link';
-  /**
-   * The ability to add custom classes
-   */
-  classes?: string;
-  /**
-   * What does the button do?
-   */
-  action: any;
+  variant?: (typeof variants)[keyof typeof variants];
 }
 
-/* Render component */
+/**
+ * The Button component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+ * It can also be used to navigate to a new page.
+ */
 export const Button: React.FC<Props> = ({
   children,
-  type,
-  classes,
-  action
+  variant = 'primary',
+  className,
+  ...props
 }) => {
-  const buttonType = type || 'lozenge';
-
-  if (buttonType === 'lozenge') {
-    return (
-      <button className={cx(styles.button, classes)} onClick={action}>
-        {children}
-      </button>
-    );
-  } else {
-    return (
-      <a className={cx(styles['button-link'], classes)} onClick={action}>
-        {children}
-      </a>
-    );
-  }
+  return (
+    <button
+      className={cx(styles.button, styles[`button-${variant}`], className)}
+      {...props}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
