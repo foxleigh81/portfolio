@@ -1,33 +1,23 @@
 import React from 'react';
+import Image from 'next/image';
 import cx from 'classnames';
 
+export const variants = [
+  'available',
+  'at-desk',
+  'blushing',
+  'skills',
+  'phone',
+  'smile',
+  'beach'
+] as const;
+
 /* Types */
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * The name of the mini-me to use
+   * The variant of the mini-me to use
    */
-  name:
-    | 'available'
-    | 'at-desk'
-    | 'blushing'
-    | 'skills'
-    | 'phone'
-    | 'smile'
-    | 'beach';
-  /**
-   * The width (in pixels) of the mini-me
-   * @default: 200
-   */
-  width?: 'narrow' | 'regular' | 'wide';
-  /**
-   * The position of the mini-me, can be one of 'left', 'right' or 'none'
-   * @default: 'right'
-   */
-  position?: 'left' | 'right' | 'none';
-  /**
-   * The ability to add custom classes
-   */
-  classes?: string;
+  variant: (typeof variants)[number];
 }
 
 /* import SVGs */
@@ -42,38 +32,74 @@ import Beach from './images/beach.svg';
 /* import styles */
 import styles from './styles.module.scss';
 
-/* Render component */
-export const MiniMe: React.FC<Props> = ({
-  name,
-  width,
-  position,
-  classes
-}: Props) => {
-  const selectMiniMe = (name: string): any => {
-    switch (name) {
-      case 'available':
-        return <img src={Available} />;
-      case 'at-desk':
-        return <img src={AtDesk} />;
-      case 'blushing':
-        return <img src={Blushing} />;
-      case 'skills':
-        return <img src={Skills} />;
-      case 'phone':
-        return <img src={Phone} />;
-      case 'beach':
-        return <img src={Beach} />;
-      case 'smile':
-      default:
-        return <img src={Smile} />;
-    }
-  };
+const selectMiniMe = (name: string): any => {};
 
-  return (
-    <div className={cx(styles['mini-me'], styles[`w-${width}`], classes)}>
-      {selectMiniMe(name)}
-    </div>
-  );
+/**
+ * The MiniMe component is used to display a cartoon version of me
+ */
+export const MiniMe: React.FC<Props> = ({
+  variant = 'available',
+  className
+}: Props) => {
+  switch (variant) {
+    case 'available':
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={Available}
+          alt="A cartoon of me, waving and smiling"
+        />
+      );
+    case 'at-desk':
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={AtDesk}
+          alt="A cartoon of me, sittng at my desk and working"
+        />
+      );
+    case 'blushing':
+      return <Image priority src={Blushing} alt="A cartoon of me, blushing" />;
+    case 'skills':
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={Skills}
+          alt="A cartoon of me, gesturing to a panel"
+        />
+      );
+    case 'phone':
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={Phone}
+          alt="A cartoon of me, on the phone"
+        />
+      );
+    case 'beach':
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={Beach}
+          alt="A cartoon of me, in a swimsuit with an inflatable duck"
+        />
+      );
+    case 'smile':
+    default:
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={Smile}
+          alt="A cartoon of me, smiling"
+        />
+      );
+  }
 };
 
 export default MiniMe;
