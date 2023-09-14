@@ -1,0 +1,19 @@
+.about {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: spacing(2);
+}
+
+.accomplishments {
+    background-color: #fff;
+    padding: padding(2);
+    @include util.rounded-border;
+
+    h3 {
+        margin-bottom: margin(2);
+    }
+
+    ul {
+        @include util.list;
+    }
+}
