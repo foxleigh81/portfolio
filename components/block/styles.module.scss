@@ -26,9 +26,16 @@
 
     h2 {
         @include type.heading-large();
+        margin-bottom: margin(1);
+    }
+
+    h3 {
+        @include type.heading-medium();
+        margin-bottom: margin(1);
     }
 
     p {
         @include type.body-text();
+        font-size: type.$large-text-size;
     }
 }

@@ -34,11 +34,10 @@ export const Block: React.FC<Props> = ({
   ...props
 }: Props) => {
   return (
-    <section
-      className={cx(styles['block'], styles[`block-${name}`], className)}
-      {...props}
-    >
-      <div className={styles.content}>{children}</div>
+    <section className={cx(styles['block'], styles[`block-${name}`])}>
+      <div className={cx(styles.content, className)} {...props}>
+        {children}
+      </div>
     </section>
   );
 };
