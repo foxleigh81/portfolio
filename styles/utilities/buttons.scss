@@ -3,6 +3,7 @@
 @use '../colours' as col;
 @use '../typography.scss' as type;
 @use './dark-mode.scss' as *;
+@use './rounded-border.scss' as *;
 @use 'focus-visible' as *;
 @use "sass:color";
 
@@ -16,9 +17,9 @@
 
 @mixin button($bg-colour, $text-colour) {
   @include type.button();
+  @include rounded-border();
 
   background-color: $bg-colour;
-  border-radius: $border-radius $border-radius $border-radius 15px;
   color: $text-colour;
   cursor: pointer;
   display: inline-block;
