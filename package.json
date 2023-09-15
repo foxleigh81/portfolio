@@ -51,5 +51,8 @@
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "storybook": "^7.4.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
