@@ -40,9 +40,14 @@ export const About: React.FC<Props> = ({ className, ...props }: Props) => {
         <h3>A few key accomplishments</h3>
         <ul>
           <li>
+            Architected, designed and supported a suite of developer tools for a
+            major UK Intelligence Agency. Allowing developers to build over 70
+            applications using the same codebase.
+          </li>
+          <li>
             Conceived and co-founded the{' '}
             <a href="https://design-system.digital.mod.uk/">
-              MOD Design System.
+              MOD UK Design System.
             </a>
           </li>
           <li>
