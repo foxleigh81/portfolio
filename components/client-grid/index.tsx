@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 
 import ClientDescription from 'components/client-description';
@@ -31,6 +31,24 @@ export const ClientGrid: React.FC<Props> = ({
 }: Props) => {
   const [activeClient, setActiveClient] = useState<Client | null>(null);
 
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  const handleDialogOpen = (
+    e: React.MouseEvent<HTMLLIElement>,
+    client: Client
+  ) => {
+    if (e.target === e.currentTarget) {
+      setActiveClient(client);
+      dialogRef.current?.showModal();
+    }
+  };
+
+  const handleDialogClose = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (e.target === e.currentTarget) {
+      dialogRef.current?.close();
+    }
+  };
+
   return (
     <section className={styles['client-grid']} {...props}>
       <ul className={styles.clients_list}>
@@ -41,18 +59,22 @@ export const ClientGrid: React.FC<Props> = ({
               styles.client,
               activeClient?.name === client.name && styles.active
             )}
-            onClick={() => setActiveClient(client)}
+            onClick={(e) => handleDialogOpen(e, client)}
           >
             <span className={styles.client__name}>{client.name}</span>
           </li>
         ))}
       </ul>
-      {activeClient && (
+
+      <dialog className={styles['modal']} ref={dialogRef}>
+        <button autoFocus onClick={handleDialogClose} className={styles.close}>
+          Close
+        </button>
         <ClientDescription
-          {...activeClient}
-          className={styles['client_overlay']}
+          {...(activeClient as Client)}
+          className={styles['client-overlay']}
         />
-      )}
+      </dialog>
     </section>
   );
 };

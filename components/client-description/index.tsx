@@ -31,18 +31,16 @@ export const ClientDescription: React.FC<Props> = ({
   date_ended,
   description,
   role,
-  className,
-  children,
-  ...props
+  className
 }: Props) => {
   return (
     <section className={cx(styles['client-description'], className)}>
-      <div className={styles.content} {...props}>
+      <div className={styles.content}>
         <h2 className={styles.name}>{name}</h2>
         <div className={styles.meta}>
           <span className={styles.role}>{role}</span>
           <span className={styles.date}>
-            {format(new Date(date_started), 'MMM yyyy')} -{' '}
+            {date_started && format(new Date(date_started), 'MMM yyyy')} -{' '}
             {date_ended ? format(new Date(date_ended), 'MMM yyyy') : 'Present'}
           </span>
         </div>
