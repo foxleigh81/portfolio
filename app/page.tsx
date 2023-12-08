@@ -2,6 +2,7 @@
 import Masthead from 'components/masthead';
 import About from 'partials/about';
 import Skills from 'partials/skills';
+import Clients from 'partials/clients';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <About />
         <Skills />
+        <Clients />
       </main>
     </>
   );
