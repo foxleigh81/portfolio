@@ -33,20 +33,13 @@ export const ClientGrid: React.FC<Props> = ({
 
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const handleDialogOpen = (
-    e: React.MouseEvent<HTMLLIElement>,
-    client: Client
-  ) => {
-    if (e.target === e.currentTarget) {
-      setActiveClient(client);
-      dialogRef.current?.showModal();
-    }
+  const handleDialogOpen = (client: Client) => {
+    setActiveClient(client);
+    dialogRef.current?.showModal();
   };
 
-  const handleDialogClose = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (e.target === e.currentTarget) {
-      dialogRef.current?.close();
-    }
+  const handleDialogClose = () => {
+    dialogRef.current?.close();
   };
 
   return (
@@ -59,15 +52,22 @@ export const ClientGrid: React.FC<Props> = ({
               styles.client,
               activeClient?.name === client.name && styles.active
             )}
-            onClick={(e) => handleDialogOpen(e, client)}
+            onClick={() => handleDialogOpen(client)}
+            onKeyUp={(e) => e.key === 'Enter' && handleDialogOpen(client)}
+            tabIndex={0}
           >
-            <span className={styles.client__name}>{client.name}</span>
+            {client.name}
           </li>
         ))}
       </ul>
 
       <dialog className={styles['modal']} ref={dialogRef}>
-        <button autoFocus onClick={handleDialogClose} className={styles.close}>
+        <button
+          autoFocus
+          onClick={handleDialogClose}
+          onKeyUp={(e) => e.key === 'Esc' && handleDialogClose()}
+          className={styles.close}
+        >
           Close
         </button>
         <ClientDescription

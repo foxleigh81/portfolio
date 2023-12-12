@@ -1,12 +1,13 @@
 .about {
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: spacing(2);
 }
 
 .accomplishments {
     background-color: #fff;
-    padding: padding(2);
+    color: #000;
+    padding: padding(2) padding(2.5);
     @include util.rounded-border;
 
     h3 {

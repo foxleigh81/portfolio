@@ -37,7 +37,7 @@ export const About: React.FC<Props> = ({ className, ...props }: Props) => {
           </p> */}
       </div>
       <div className={styles.accomplishments}>
-        <h3>A few key accomplishments</h3>
+        <h3>Notable accomplishments</h3>
         <ul>
           <li>
             Architected, designed and supported a suite of developer tools for a

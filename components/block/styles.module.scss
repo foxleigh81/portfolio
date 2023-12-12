@@ -3,19 +3,24 @@
     justify-content: center;
     padding: padding(2) padding(1);
     &-about {
-        background-color: #E3E9F0;
+        background-color: #0027F1;
+        color: #fff
     }
     &-skills {
-        background-color: #FED1D1;
+        background-color: #FF1414;
+        color: #fff
     }
     &-clients {
-        background-color: #FEF1D1;
+        background-color: #FFC531;
+        color: #483000;
     }
     &-testimonials {
-        background-color: #D1FED1;
+        background-color: #80E600;
+        color: #00380C;
     }
     &-contact {
-        background-color: #BAA4F8;
+        background-color: #F040FF;
+        color: #fff;
     }
 }
 

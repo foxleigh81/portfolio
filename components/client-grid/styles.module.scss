@@ -16,19 +16,14 @@
 .client-grid li {
     display: grid;
     background-color: aliceblue;   
-    justify-content: center;
+    place-content: center;
     cursor: pointer;
     padding: .5rem;
-}
-
-.client__name {
     font-size: 2.5rem;
     font-weight: bold;
-    margin: 0;
-    display: block;
-    align-self: center;
     text-align: center;
 }
+
 
 .close {
     position: absolute;
