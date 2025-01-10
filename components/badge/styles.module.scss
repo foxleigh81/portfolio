@@ -1,0 +1,10 @@
+.badge {
+  padding: padding(.5) padding(1);
+  display: inline-grid;
+  grid-template-columns: 18px auto;
+  gap: spacing(.8);
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: type.$small-text-size;
+}
