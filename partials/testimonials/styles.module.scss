@@ -1,6 +1,47 @@
-.testimonials {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: spacing(2);
+.top {
+    margin-bottom: margin(2);
+    a {
+        color: col.$dark;
+    }
+}
+.testimonial {
+    position: relative;
+    padding: padding(2);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
 }
 
+.author {
+    margin-top: margin(2);
+    font-size: type.$body-text-size;
+    font-weight: bold;
+    margin-bottom: 5px;
+
+    .name {
+        color: #333;
+        font-size: type.$heading-small-size;
+        margin-bottom: margin(.5);
+    }
+}
+
+.quote {
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: margin(2);
+}
+
+.quoteicon {
+    position: absolute;
+    top: 0;
+    right: spacing(2);
+    width: 150px;
+    height: 150px;
+    fill: #000;
+    opacity: 0.05;
+    transform: rotate(180deg);    
+    z-index: 1;
+}
