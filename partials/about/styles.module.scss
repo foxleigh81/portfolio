@@ -8,8 +8,7 @@
     background-color: rgba(col.$light, 0.9);
     color: col.$dark;
     padding: padding(2) padding(2.5);
-    @include util.rounded-border;
-
+    border-radius: 5px;
     h3 {
         margin-bottom: margin(2);
     }
