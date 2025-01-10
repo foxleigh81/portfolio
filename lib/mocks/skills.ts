@@ -25,6 +25,18 @@ const skills = [
         "background": "#3776AB",
         "foreground": "#ffffff",
         "slug": "python"
+      },
+      {
+        "name": "Bash",
+        "background": "#4EAA25",
+        "foreground": "#ffffff",
+        "slug": "gnubash"
+      },
+      {
+        "name": "PHP",
+        "background": "#777BB4",
+        "foreground": "#ffffff",
+        "slug": "php"
       }
     ]
   },
@@ -192,6 +204,18 @@ const skills = [
         "slug": "bitbucket"
       },
       {
+        "name": "AWS",
+        "background": "#232F3E",
+        "foreground": "#ffffff",
+        "slug": "amazonwebservices"
+      },
+      {
+        "name": "Google Cloud",
+        "background": "#4285F4",
+        "foreground": "#ffffff",
+        "slug": "googlecloud"
+      },
+      {
         "name": "Vercel",
         "background": "#333333",
         "foreground": "#ffffff",
@@ -336,6 +360,62 @@ const skills = [
         "background": "#005F9E",
         "foreground": "#ffffff",
         "slug": "sketchup"
+      },
+      {
+        "name": "Blender",
+        "background": "#F5792A",
+        "foreground": "#ffffff",
+        "slug": "blender"
+      }
+    ]
+  },
+  {
+    "title": "Soft skills",
+    "skills": [
+      {
+        "name": "Communication",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Mentoring",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Conflict resolution",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Problem solving",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Critical thinking",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Leadership",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Creativity",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Stragegic planning",
+        "background": "#333333",
+        "foreground": "#ffffff",
+      },
+      {
+        "name": "Stakeholder Management",
+        "background": "#333333",
+        "foreground": "#ffffff"
       }
     ]
   }
