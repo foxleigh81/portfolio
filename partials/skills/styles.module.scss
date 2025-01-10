@@ -1,6 +1,6 @@
 .skills {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: spacing(2);
 }
 
@@ -17,4 +17,31 @@
     width: 100%;
     height: auto;
     margin-bottom: margin(1);
+}
+
+.content {
+    width: 100%;
+    background-color: rgba(col.$light, 0.9);
+    color: col.$dark;
+    padding: padding(2);
+    border-radius: 5px;
+
+    .top {
+        display: grid;
+        gap: spacing(1);
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.skill-type {
+    margin-bottom: margin(2);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacing(.5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

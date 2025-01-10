@@ -1,4 +1,6 @@
 .badge {
+  height: 29px;
+  width: fit-content;
   padding: padding(.5) padding(1);
   display: inline-grid;
   grid-template-columns: 18px auto;
@@ -7,4 +9,8 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: type.$small-text-size;
+
+  &.no-icon {
+    grid-template-columns: 1fr;;
+  }
 }

@@ -84,6 +84,7 @@ h5,
 h6 {
   font-size: 100%;
   font-weight: normal;
+  text-wrap: balance;
 }
 
 q::before,
@@ -146,4 +147,11 @@ p em {
 input,
 button {
   border: 0;
+}
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+  max-width: 65ch;
 }

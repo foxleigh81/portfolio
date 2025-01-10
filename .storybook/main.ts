@@ -55,10 +55,6 @@ const config: StorybookConfig = {
       to: '/'
     },
     {
-      from: '../public/favicons',
-      to: '/'
-    },
-    {
       from: '../lib/mocks',
       to: '/mocks'
     },

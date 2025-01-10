@@ -1,5 +1,4 @@
 import React from 'react';
-import { capitalize } from 'lodash';
 import cx from 'classnames';
 
 import { variants as miniMeVariants } from '../mini-me';
@@ -17,7 +16,7 @@ import { Availability, statuses } from '../availability';
 
 /* Types */
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The mini-me to use
    */
@@ -42,11 +41,13 @@ export const Masthead: React.FC<Props> = ({
   miniMeVariant = 'available',
   hour,
   availability = 'available',
-  date
+  date,
+  className,
+  ...props
 }: Props) => {
   const { segment, lightLevel } = salutation(hour || undefined);
   return (
-    <div className={cx(styles['masthead'], styles[lightLevel])}>
+    <div {...props} className={cx(styles['masthead'], styles[lightLevel], className)}>
       <div className={styles.foreground}>
         <NavBar />
         <div className={styles['content']}>

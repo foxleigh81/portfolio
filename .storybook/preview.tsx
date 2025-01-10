@@ -37,13 +37,9 @@ import React from 'react';
  * See https://github.com/mswjs/msw-storybook-addon#configuring-msw
  * to learn how to customize it
  */
+/* MSW Initialization for the Addon */
 initialize({
-  onUnhandledRequest: (request) => {
-    if (request.url.pathname.includes('hot-update')) {
-      request.passthrough();
-    }
-    return 'bypass';
-  }
+  onUnhandledRequest: 'bypass', // Pass through unhandled requests by default
 });
 
 export const withTheme: Decorator<Args> = (Story, context) => {

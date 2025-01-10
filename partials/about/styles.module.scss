@@ -5,8 +5,8 @@
 }
 
 .accomplishments {
-    background-color: #fff;
-    color: #000;
+    background-color: rgba(col.$light, 0.9);
+    color: col.$dark;
     padding: padding(2) padding(2.5);
     @include util.rounded-border;
 
