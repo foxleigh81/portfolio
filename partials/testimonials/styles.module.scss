@@ -1,7 +1,10 @@
 .top {
     margin-bottom: margin(2);
     a {
-        color: col.$dark;
+        color: col.$light;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-underline-offset: 5px;
     }
 }
 .testimonial {
@@ -23,6 +26,11 @@
         font-size: type.$heading-small-size;
         margin-bottom: margin(.5);
     }
+
+    .role {
+        color: #666;
+        font-size: type.$body-text-size;
+    }
 }
 
 .quote {
@@ -30,7 +38,7 @@
     z-index: 2;
     font-style: italic;
     line-height: 1.5;
-    color: #333;
+    color: #111;
     margin-bottom: margin(2);
 }
 

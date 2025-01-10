@@ -2,26 +2,9 @@
     display: grid;
     justify-content: center;
     padding: padding(2) padding(1);
-    &-about {
-        background-color: #0027F1;
-        color: #fff
-    }
-    &-skills {
-        background-color: #FF1414;
-        color: #fff
-    }
-    &-clients {
-        background-color: #FFC531;
-        color: #483000;
-    }
-    &-testimonials {
-        background-color: #80E600;
-        color: #00380C;
-    }
-    &-contact {
-        background-color: #F040FF;
-        color: #fff;
-    }
+    background-color: #272e4e;
+    color: #fff
+    
 }
 
 .content {
