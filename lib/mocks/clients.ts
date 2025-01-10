@@ -1,6 +1,13 @@
 const clients = [
   {
-    slug: 'ncsc',
+    slug: 'transform',
+    name: 'Transform',
+    date_started: '2024-05-01',
+    date_ended: '2024-09-01',
+    description: `<p>In my role as Lead Developer for this project, I took charge of the architecture and coding standards for a sophisticated property search platform. Managing a team of two developers, I led strategic planning discussions with clients and senior leadership to ensure alignment with business objectives. My focus on creating a robust, accessible, and performant component library, thoroughly documented and tested within Storybook, facilitated a seamless user experience and maintained high development standards.</p>`
+  },
+  {
+    slug: 'ukic',
     name: 'UK Intelligence Services',
     date_started: '2021-01-01',
     date_ended: '2022-08-01',
