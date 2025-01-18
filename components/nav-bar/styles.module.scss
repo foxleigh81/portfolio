@@ -118,6 +118,10 @@
     justify-content: flex-end;  
     order: 3;
   }
+
+  .link:hover {
+    @include animate.wobble();
+  }
 }
 
 .icon {
@@ -133,7 +137,9 @@
   display: block;
   border-bottom: 1px solid transparent;
   &:hover {
-    border-bottom: 1px solid col.$primary-button;
+    text-decoration: underline;
+    text-decoration-color: col.$primary-button;
+    text-underline-offset: margin(.5);
   }
 
   &:active {

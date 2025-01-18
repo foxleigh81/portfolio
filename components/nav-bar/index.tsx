@@ -59,7 +59,7 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    url: 'https://alexfoxleigh.com',
+    url: 'https://www.linkedin.com/in/alexfoxleigh',
     icon: LinkedIn
   }
 ];
