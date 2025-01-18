@@ -52,9 +52,32 @@
     color: red;
 }
 
-
-
 .button {
     border-radius: spacing(0.5);
     padding: padding(1) padding(5);
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(2);
+    justify-content: center;
+    margin-top: margin(3);
+
+    li {
+        display: flex;
+        gap: spacing(1);
+        align-items: center;
+
+        > span:first-of-type {
+            font-weight: bold;
+        }
+    }
+
+
+
+    a {
+        @include util.link();
+        color: col.$light;
+    }
 }

@@ -71,8 +71,35 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
         <div className={styles.container}>
           <div className={styles.content}>
             <p>
-              If you'd like to get in touch with me, please fill out the form below and I'll get back to you as soon as possible.
+              If you'd like to get in touch with me, please fill out the form and I'll get back to you as soon as possible.
+
+              Alternatively, you can contact me using one of the methods below:
             </p>
+
+            <ul className={styles['contact-list']}>
+              <li>
+                <span>Email:</span>
+                <a href="mailto:alex@alexfoxleigh.com">
+                  <span>alex@alexfoxleigh.com</span>
+                </a>
+              </li>
+              <li>
+                <span>Phone:</span>
+                <a href="tel:07480647732">
+                  <span>07480 647732</span>
+                </a>
+              </li>
+              <li>
+                <span>LinkedIn:</span>
+                <a href="https://www.linkedin.com/in/alexfoxleigh">
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <span>Carrier pigeon:</span>
+                <span>No longer available.</span>
+              </li>
+            </ul>
           </div>
 
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
