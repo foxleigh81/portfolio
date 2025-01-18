@@ -1,0 +1,60 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: spacing(2);
+}
+
+.form {
+    display: grid;
+    gap: spacing(2);
+}
+
+.error {
+    color: pink;
+    font-size: type.$body-text-size;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(1);
+
+    &--checkbox {
+        display: flex;
+        flex-direction: column;
+        gap: spacing(1);
+        div {
+            display: flex;
+            align-items: center;
+            gap: spacing(1);
+        }
+    }
+
+    input {
+        @include type.input();
+        padding: padding(1);
+        border: 1px solid #ccc;
+        border-radius: spacing(0.5);
+    }
+
+    textarea {
+        padding: padding(1);
+        border: 1px solid #ccc;
+        border-radius: spacing(0.5);
+    }
+
+    label {
+        @include type.input-label();
+    }
+}
+
+.required {
+    color: red;
+}
+
+
+
+.button {
+    border-radius: spacing(0.5);
+    padding: padding(1) padding(5);
+}
