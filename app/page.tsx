@@ -5,6 +5,7 @@ import About from 'partials/about';
 import Skills from 'partials/skills';
 import Clients from 'partials/clients';
 import Testimonials from 'partials/testimonials';
+import Contact from 'partials/contact';
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
       <Masthead />
       <About /> 
       <Skills /> 
-      <Clients  />
-      <Testimonials  />
+      <Clients />
+      <Testimonials />
+      <Contact />
     </main>
   );
 }
