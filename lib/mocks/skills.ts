@@ -276,6 +276,12 @@ const skills = [
         "slug": "docker"
       },
       {
+        "name": "Kubernetes",
+        "background": "#326CE5",
+        "foreground": "#ffffff",
+        "slug": "kubernetes"
+      },
+      {
         "name": "Unraid",
         "background": "#333333",
         "foreground": "#ffffff",
