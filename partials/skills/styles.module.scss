@@ -28,8 +28,8 @@
 
     .top {
         display: grid;
-        gap: spacing(1);
-        grid-template-columns: 1.3fr 2fr;
+        gap: spacing(2);
+        grid-template-columns: 1fr 1fr;
         margin-bottom: margin(2);
     }
 }
