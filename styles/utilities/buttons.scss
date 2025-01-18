@@ -5,6 +5,7 @@
 @use './dark-mode.scss' as *;
 @use './rounded-border.scss' as *;
 @use 'focus-visible' as *;
+@use '../animations/index.scss' as animate;
 @use "sass:color";
 
 @mixin disabled-button() {
@@ -34,6 +35,7 @@
   &:not([disabled]) {
     &:hover {
       filter: brightness(125%);
+      @include animate.wobble();
     }
 
     &:active {
@@ -56,6 +58,10 @@
   @include button(col.$primary-button, col.$primary-button-text);
 }
 
+.btn-primary {
+  @include button-primary;
+}
+
 @mixin button-secondary {
   @include button(col.$secondary-button, col.$secondary-button-text);
 
@@ -64,6 +70,10 @@
       filter: brightness(140%);
     }
   }
+}
+
+.btn-secondary {
+  @include button-secondary;
 }
 
 @mixin button-availability {
