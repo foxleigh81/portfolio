@@ -62,7 +62,7 @@
     flex-direction: column;
     gap: spacing(2);
     justify-content: center;
-    margin-top: margin(3);
+    margin-top: margin(4);
 
     li {
         display: flex;
@@ -70,6 +70,9 @@
         align-items: center;
 
         > span:first-of-type {
+            display: flex;
+            align-items: center;
+            gap: spacing(1);
             font-weight: bold;
         }
     }

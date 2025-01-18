@@ -4,6 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classnames from 'classnames';
 import Block from 'components/block';
+import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
+import { PiLinkedinLogoBold } from "react-icons/pi";
+import { LuBird } from "react-icons/lu";
 
 import styles from './styles.module.scss';
 
@@ -78,25 +81,25 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
 
             <ul className={styles['contact-list']}>
               <li>
-                <span>Email:</span>
+                <span><MdOutlineEmail />Email:</span>
                 <a href="mailto:alex@alexfoxleigh.com">
                   <span>alex@alexfoxleigh.com</span>
                 </a>
               </li>
               <li>
-                <span>Phone:</span>
+                <span><MdOutlineLocalPhone />Phone:</span>
                 <a href="tel:07480647732">
                   <span>07480 647732</span>
                 </a>
               </li>
               <li>
-                <span>LinkedIn:</span>
+                <span><PiLinkedinLogoBold />LinkedIn:</span>
                 <a href="https://www.linkedin.com/in/alexfoxleigh">
                   <span>LinkedIn</span>
                 </a>
               </li>
               <li>
-                <span>Carrier pigeon:</span>
+                <span><LuBird />Carrier pigeon:</span>
                 <span>No longer available.</span>
               </li>
             </ul>
