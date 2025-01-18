@@ -46,8 +46,8 @@ export const About: React.FC<Props> = ({ className, ...props }: Props) => {
           </li>
           <li>
             Conceived and co-founded the{' '}
-            <a href="https://design-system.digital.mod.uk/">
-              MOD UK Design System.
+            <a href="https://design-system.navy.digital.mod.uk/">
+              Royal Navy Design System.
             </a>
           </li>
           <li>

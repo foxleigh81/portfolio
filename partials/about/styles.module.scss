@@ -16,4 +16,11 @@
     ul {
         @include util.list;
     }
+
+    a {
+        color: col.$dark;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-underline-offset: 5px;
+    }
 }
