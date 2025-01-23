@@ -1,12 +1,12 @@
 .masthead {
     position: relative;
     display: grid;
-    grid-template-rows: auto max-content;
+    grid-template-rows: min-content max-content;
     height: 500px;
     overflow-y: hidden;
     background: linear-gradient(253.86deg, #4E03AD 0.54%, #420293 48.6%, #2B0063 74.61%, rgba(78, 3, 173, 0.00520833) 74.62%, #2F006A 74.62%);
     @include util.mq(bp.$medium) {
-        grid-template-rows: auto max-content;
+        grid-template-rows: 50px max-content;
     }
 }
 

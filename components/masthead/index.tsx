@@ -48,6 +48,11 @@ export const Masthead: React.FC<Props> = ({
   const { segment, lightLevel } = salutation(hour || undefined);
   return (
     <div {...props} className={cx(styles['masthead'], styles[lightLevel], className)}>
+      <Availability
+        className={styles.status}
+        status={availability}
+        date={date}
+      />
       <div className={styles.foreground}>
         <NavBar />
         <div className={styles['content']}>
@@ -62,11 +67,6 @@ export const Masthead: React.FC<Props> = ({
           <MiniMe variant={miniMeVariant} className={styles['mini-me']} />
         </div>
       </div>
-      <Availability
-        className={styles.status}
-        status={availability}
-        date={date}
-      />
     </div>
   );
 };
