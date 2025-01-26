@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // NOTE: If you add or remove a colour variable,
 // you will need to update the _colourvars.module.scss file
 // in the styles folder to match.
@@ -41,11 +43,11 @@ $error: $danger;
 
 /* Buttons */
 $primary-button: hsl(281, 93%, 49%);
-$primary-button-hover: hsl(279, 91%, 43%);
+$primary-button-hover: color.adjust($primary-button, $lightness: -6%);
 $primary-button-text: hsl(0, 0%, 100%);
 
 $secondary-button: hsl(281, 100%, 93%);
-$secondary-button-hover: hsl(284, 92%, 95%);
+$secondary-button-hover: color.adjust($secondary-button, $lightness: 2%);
 $secondary-button-text: hsl(281, 93%, 49%);
 
 $availability-button: hsla(0, 0%, 0%, 0.4);
@@ -54,7 +56,7 @@ $unavailable-button-text: hsl(0, 0%, 100%);
 
 /* Inputs */
 $input-bg: $bg;
-$input-focus-bg: lighten($primary, 59%);
+$input-focus-bg: color.adjust($primary, $lightness: 59%);
 $input-border: $grey-500;
 $input-border-focus: $primary;
 $label-text: $body-text;
@@ -64,7 +66,7 @@ $disabled-input-text: hsl(0, 5%, 30%);
 /* Links */
 /* Style also applies to text buttons */
 $link: hsl(216, 78%, 41%);
-$link-hover: lighten($link, 20%);
+$link-hover: color.adjust($link, $lightness: 20%);
 $link-disabled: hsl(0, 5%, 46%);
 
 /* Actions */
@@ -73,22 +75,20 @@ $action-destroy: $danger;
 $action-create: $success;
 $action-disabled: hsl(0, 0%, 60%);
 
-$action-hover: lighten($action, 15%);
-$action-destroy-hover: lighten($action-destroy, 10%);
-$action-create-hover: lighten($action-create, 10%);
+$action-hover: color.adjust($action, $lightness: 15%);
+$action-destroy-hover: color.adjust($action-destroy, $lightness: 10%);
+$action-create-hover: color.adjust($action-create, $lightness: 10%);
 
-$action-focus-bg: lighten($primary, 20%);
-$action-destroy-focus-bg: lighten($action-destroy, 20%);
-$action-create-focus-bg: lighten($action-create, 20%);
+$action-focus-bg: color.adjust($primary, $lightness: 20%);
+$action-destroy-focus-bg: color.adjust($action-destroy, $lightness: 20%);
+$action-create-focus-bg: color.adjust($action-create, $lightness: 20%);
 
 $action-text: hsl(0, 0%, 100%);
 
 /* Shadows and borders */
-
 $shadow: hsl(0, 0%, 0%);
 $border: hsl(30, 3%, 87%);
 $border-dark: hsl(0, 0%, 44%);
 
 /* A11y compliance */
-
 $keyboard-focus: hsl(308, 100%, 51%);

@@ -12,20 +12,17 @@
   }
 
   h2 {
-    @include type.heading-large();
-
     margin-bottom: margin(1);
+    @include type.heading-large();
   }
 
   h3 {
-    @include type.heading-medium();
-
     margin-bottom: margin(1);
+    @include type.heading-medium();
   }
 
   p {
-    @include type.body-text();
-
     font-size: type.$large-text-size;
+    @include type.body-text();
   }
 }

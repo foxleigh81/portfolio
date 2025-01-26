@@ -1,12 +1,3 @@
-/**
- Wobble animation
- Usage:
-  @include animate.wobble(<options>);
- Options:
-  - amount: amount of wobble (default: 8deg)
-  - duration: duration of the animation (default: .5s)
-  - loop: number of times to loop the animation (default: infinite)
-*/
 @mixin wobble($amount: 8deg, $duration: 0.5s, $loop: infinite) {
   @keyframes wobble {
     0% {
@@ -30,5 +21,7 @@
     }
   }
 
-  animation: wobble $duration $loop;
+  & {
+    animation: wobble $duration $loop;
+  }
 }

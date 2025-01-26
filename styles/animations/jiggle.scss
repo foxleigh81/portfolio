@@ -45,5 +45,7 @@
     }
   }
 
-  animation: jiggle $duration $loop;
+  & {
+    animation: jiggle $duration $loop;
+  }
 }

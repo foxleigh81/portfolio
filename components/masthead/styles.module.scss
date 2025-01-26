@@ -76,17 +76,15 @@
 
   h1 {
     color: #fff;
+    margin-bottom: margin(1);
 
     @include type.title();
-
-    margin-bottom: margin(1);
   }
 
   h2 {
     color: #fff;
 
     @include type.heading-large();
-
     @include util.mq(bp.$medium) {
       @include type.heading-medium();
     }

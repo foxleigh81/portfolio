@@ -16,6 +16,7 @@
       transform: rotate(360deg);
     }
   }
-
-  animation: spin $duration $loop linear;
+  & {
+    animation: spin $duration $loop linear;
+  }
 }
