@@ -6,7 +6,7 @@
 @use './rounded-border.scss' as *;
 @use 'focus-visible' as *;
 @use '../animations/index.scss' as animate;
-@use "sass:color";
+@use 'sass:color';
 
 @mixin disabled-button() {
   background-color: col.$action-disabled;
@@ -35,6 +35,7 @@
   &:not([disabled]) {
     &:hover {
       filter: brightness(125%);
+
       @include animate.wobble();
     }
 
@@ -117,7 +118,7 @@
   &:hover {
     box-shadow: none;
     color: currentColor;
-    // background-color: transparent;
+    // background-color: transparent;background-colorbackground-colorbackground-colorbackground-colorbackground-colorbackground-colorbackground-colorbackground-color
     text-decoration: underline;
   }
 
@@ -127,4 +128,3 @@
     color: col.$action-focus-bg;
   }
 }
-

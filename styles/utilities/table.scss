@@ -70,7 +70,9 @@ $inner-border-radius: calc($border-radius - 1px);
   &:not(:last-child) {
     td,
     th {
-      border-bottom: 1px solid col.$border, 30%;
+      border-bottom:
+        1px solid col.$border,
+        30%;
     }
   }
 }
@@ -110,6 +112,8 @@ $inner-border-radius: calc($border-radius - 1px);
 
   td,
   th {
-    border-bottom: 1px solid col.$border, 30%;
+    border-bottom:
+      1px solid col.$border,
+      30%;
   }
 }

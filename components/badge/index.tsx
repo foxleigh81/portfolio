@@ -43,20 +43,26 @@ export const Badge: React.FC<Props> = ({
 }) => {
   return (
     <span
-      className={cx(styles.badge, { 
-        [styles['no-icon']]: !icon
-      }, className)}
+      className={cx(
+        styles.badge,
+        {
+          [styles['no-icon']]: !icon
+        },
+        className
+      )}
       style={{ backgroundColor: background, color: foreground }}
       {...props}
     >
-      {icon && (<Image
-        className={styles.icon}
-        src={`https://cdn.simpleicons.org/${icon}/${foreground.replace('#', '')}`}
-        alt={altText || `${text} icon`}
-        width={18} // Adjust width as needed
-        height={18} // Adjust height as needed
-        unoptimized // Since we're using an external URL
-      />)}
+      {icon && (
+        <Image
+          className={styles.icon}
+          src={`https://cdn.simpleicons.org/${icon}/${foreground.replace('#', '')}`}
+          alt={altText || `${text} icon`}
+          width={18} // Adjust width as needed
+          height={18} // Adjust height as needed
+          unoptimized // Since we're using an external URL
+        />
+      )}
       {text}
     </span>
   );

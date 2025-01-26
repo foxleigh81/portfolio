@@ -1,26 +1,27 @@
 .about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: spacing(2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacing(2);
 }
 
 .accomplishments {
-    background-color: rgba(col.$light, 0.9);
+  background-color: rgba(col.$light, 0.9);
+  color: col.$dark;
+  padding: padding(2) padding(2.5);
+  border-radius: 5px;
+
+  h3 {
+    margin-bottom: margin(2);
+  }
+
+  ul {
+    @include util.list;
+  }
+
+  a {
     color: col.$dark;
-    padding: padding(2) padding(2.5);
-    border-radius: 5px;
-    h3 {
-        margin-bottom: margin(2);
-    }
-
-    ul {
-        @include util.list;
-    }
-
-    a {
-        color: col.$dark;
-        text-decoration: underline;
-        text-decoration-style: dotted;
-        text-underline-offset: 5px;
-    }
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 5px;
+  }
 }

@@ -1,48 +1,55 @@
 .availability {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: padding(2) padding(1);
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: padding(2) padding(1);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
 }
-.content {
-    display: grid;
-    grid-template-rows: max-content auto;
-    gap: spacing(1);
-    text-align: center;
-    @include util.mq(bp.$medium) {
-        text-align: left;
-        grid-template-columns: 3fr 1fr;
-        grid-template-rows: auto;
-        gap: spacing(3);
-        align-items: center;
-        width: 800px;
-    }
-    p {
-        color: #fff;
-        font-size: type.$heading-small-size;
-        margin-bottom: 0 !important;
-        font-weight: 600;
-    }
 
+.content {
+  display: grid;
+  grid-template-rows: max-content auto;
+  gap: spacing(1);
+  text-align: center;
+
+  @include util.mq(bp.$medium) {
+    text-align: left;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+    gap: spacing(3);
+    align-items: center;
+    width: 800px;
+  }
+
+  p {
+    color: #fff;
+    font-size: type.$heading-small-size;
+    margin-bottom: 0 !important;
+    font-weight: 600;
+  }
 }
+
 .button {
-    justify-self: center;
-    @include util.mq(bp.$medium) {
-        justify-self: end !important;
-        margin-right: margin(2);
-    }
+  justify-self: center;
+
+  @include util.mq(bp.$medium) {
+    justify-self: end !important;
+    margin-right: margin(2);
+  }
 }
+
 .status-available {
-    background-color: #0f7f36;
+  background-color: #0f7f36;
 }
 
 .status-unavailable {
-    background-color: #BD2E2E;
+  background-color: #bd2e2e;
 }
+
 .status-available-soon {
-    background-color: #5b6f00;
+  background-color: #5b6f00;
 }
+
 .status-freelance {
-    background-color: #2e71bd;
+  background-color: #2e71bd;
 }

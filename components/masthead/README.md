@@ -23,11 +23,13 @@ This is an example readme file for the 'Welcome' component.
 ## Usage
 
 ### ES6 Import
+
 ```js
-import Welcome from './welcome'
+import Welcome from './welcome';
 ```
 
 ### CommonJS
 
 ```js
-const Welcome = require('./welcome')
+const Welcome = require('./welcome');
+```

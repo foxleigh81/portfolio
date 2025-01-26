@@ -45,9 +45,12 @@ export const Masthead: React.FC<Props> = ({
   className,
   ...props
 }: Props) => {
-  const { segment, lightLevel } = salutation(hour || undefined);
+  const { lightLevel } = salutation(hour || undefined);
   return (
-    <div {...props} className={cx(styles['masthead'], styles[lightLevel], className)}>
+    <div
+      {...props}
+      className={cx(styles['masthead'], styles[lightLevel], className)}
+    >
       <Availability
         className={styles.status}
         status={availability}

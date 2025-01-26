@@ -21,11 +21,13 @@ This is an example readme file for the 'Nav Bar' component.
 ## Usage
 
 ### ES6 Import
+
 ```js
-import NavBar from './nav-bar'
+import NavBar from './nav-bar';
 ```
 
 ### CommonJS
 
 ```js
-const NavBar = require('./nav-bar')
+const NavBar = require('./nav-bar');
+```

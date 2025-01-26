@@ -20,7 +20,7 @@ const salutation = (hour?: number) => {
   };
 
   // Determine which segment of the day it is
-  let segment = (t: number): string => {
+  const segment = (time: number): string => {
     switch (timeOfDay(time)) {
       case 'early-morning':
       case 'mid-morning':
@@ -36,7 +36,7 @@ const salutation = (hour?: number) => {
   };
 
   // Determine an approximate light level
-  let lightLevel = (t: number): string => {
+  const lightLevel = (time: number): string => {
     switch (timeOfDay(time)) {
       case 'early-morning':
         return 'sunrise';

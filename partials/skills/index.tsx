@@ -34,36 +34,30 @@ export const Skills: React.FC<Props> = ({ className, ...props }: Props) => {
           />
           <p>
             I unfortunately, don&apos;t (yet) have a robot who will bring me
-            pizza. but what I do have are a very particular set of skills; skills
-            I have acquired over a very long career. Skills that make me an asset
-            for people like you.
+            pizza. but what I do have are a very particular set of skills;
+            skills I have acquired over a very long career. Skills that make me
+            an asset for people like you.
           </p>
         </div>
         <div className={styles['skills-container']}>
-          {
-            skillsMock.map((type) => (
-              <div key={type.title} className={styles['skill-type']}>
-                <h3>{type.title}</h3>
-                <div className={styles['skills-list']}>
-                  {
-                    type.skills.map((skill) => (
-                      <Badge
-                        key={skill.name}
-                        text={skill.name}
-                        icon={skill.slug}
-                        foreground={skill.foreground}
-                        background={skill.background}
-                      />
-                    ))
-                  }
-                </div>
+          {skillsMock.map((type) => (
+            <div key={type.title} className={styles['skill-type']}>
+              <h3>{type.title}</h3>
+              <div className={styles['skills-list']}>
+                {type.skills.map((skill) => (
+                  <Badge
+                    key={skill.name}
+                    text={skill.name}
+                    icon={skill.slug}
+                    foreground={skill.foreground}
+                    background={skill.background}
+                  />
+                ))}
               </div>
-            ))
-          }
+            </div>
+          ))}
         </div>
       </div>
-      
-      
     </Block>
   );
 };

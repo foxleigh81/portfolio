@@ -3,11 +3,7 @@
 @use 'utilities/responsive' as util;
 @use '@fontsource/work-sans/scss/mixins' as WorkSans;
 
-@include WorkSans.faces(
-  $weights: all,
-  $styles: 'all',
-  $family: 'Work Sans'
-);
+@include WorkSans.faces($weights: all, $styles: 'all', $family: 'Work Sans');
 
 $body-text-size: 1.4rem;
 
@@ -36,12 +32,14 @@ $title-size: 8rem;
 
 @mixin title {
   font-weight: 800;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   font-size: 18vw;
+
   @include util.mq(bp.$medium-small) {
     font-size: $title-size / 1.5;
     line-height: 5rem;
   }
+
   @include util.mq(bp.$medium) {
     font-size: $title-size;
     line-height: 7rem;
@@ -55,6 +53,7 @@ $heading-large-size: 3.4rem;
   letter-spacing: 0;
   font-size: $heading-large-size / 1.5;
   line-height: 4rem;
+
   @include util.mq(bp.$medium) {
     font-size: $heading-large-size;
     line-height: 4.8rem;
@@ -68,6 +67,7 @@ $heading-medium-size: 2.4rem;
   letter-spacing: 0;
   font-size: $heading-medium-size / 1.5;
   line-height: 2.4rem;
+
   @include util.mq(bp.$medium) {
     font-size: $heading-medium-size;
   }
@@ -79,6 +79,7 @@ $heading-small-size: 2rem;
   font-weight: 600;
   font-size: $heading-small-size / 1.5;
   line-height: 2.2rem;
+
   @include util.mq(bp.$medium) {
     font-size: $heading-small-size;
     line-height: 2.4rem;

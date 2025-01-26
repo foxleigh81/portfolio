@@ -90,7 +90,7 @@ generators automatically when the source files change.
 
 ## Browser Support
 
-All  Suite applications support the latest versions of all major current desktop
+All Suite applications support the latest versions of all major current desktop
 and mobile browsers.
 
 Our current 'browserlist' compatibility is the following:

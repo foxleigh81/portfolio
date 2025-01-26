@@ -66,7 +66,7 @@ const socialLinks = [
 
 const buttonAction = (url: string) => () => window.open(url);
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {}
+export type Props = React.HTMLAttributes<HTMLDivElement>;
 
 /**
  * The NavBar component is used to display the top navigation bar

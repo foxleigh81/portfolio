@@ -17,13 +17,9 @@
 
   @if $dir == 'x' {
     $jiggle: $amount, 0;
-  }
-
-  @else if $dir == 'y' {
+  } @else if $dir == 'y' {
     $jiggle: 0, $amount;
-  }
-
-  @else {
+  } @else {
     $jiggle: $amount, $amount;
   }
 

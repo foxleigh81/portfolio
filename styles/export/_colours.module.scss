@@ -1,4 +1,3 @@
-
 @use '../colours' as *;
 
 /**
@@ -8,7 +7,6 @@
 * appropriate file in the 'styles' folder and run 'yarn generate:scss-exports'
 * (If you are using devkit then this will happen automatically when you save the file)
 */
-
 
 :export {
   colBg: $bg;

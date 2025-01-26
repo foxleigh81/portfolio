@@ -1,29 +1,31 @@
 .block {
-    display: grid;
-    justify-content: center;
-    padding: padding(2) padding(1);
-    background-color: #272e4e;
-    color: #fff
-    
+  display: grid;
+  justify-content: center;
+  padding: padding(2) padding(1);
+  background-color: #272e4e;
+  color: #fff;
 }
 
 .content {
-    @include util.mq(bp.$medium) {
-        width: 800px;
-    } 
+  @include util.mq(bp.$medium) {
+    width: 800px;
+  }
 
-    h2 {
-        @include type.heading-large();
-        margin-bottom: margin(1);
-    }
+  h2 {
+    @include type.heading-large();
 
-    h3 {
-        @include type.heading-medium();
-        margin-bottom: margin(1);
-    }
+    margin-bottom: margin(1);
+  }
 
-    p {
-        @include type.body-text();
-        font-size: type.$large-text-size;
-    }
+  h3 {
+    @include type.heading-medium();
+
+    margin-bottom: margin(1);
+  }
+
+  p {
+    @include type.body-text();
+
+    font-size: type.$large-text-size;
+  }
 }

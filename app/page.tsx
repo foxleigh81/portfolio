@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main>
       <Masthead />
-      <About /> 
-      <Skills /> 
+      <About />
+      <Skills />
       <Clients />
       <Testimonials />
       <Contact />

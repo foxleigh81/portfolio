@@ -32,8 +32,6 @@ import Beach from './images/beach.svg';
 /* import styles */
 import styles from './styles.module.scss';
 
-const selectMiniMe = (name: string): any => {};
-
 /**
  * The MiniMe component is used to display a cartoon version of me
  */

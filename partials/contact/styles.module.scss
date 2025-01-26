@@ -1,86 +1,87 @@
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: spacing(2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacing(2);
 }
 
 .form {
-    display: grid;
-    gap: spacing(2);
+  display: grid;
+  gap: spacing(2);
 }
 
 .error {
-    color: pink;
-    font-size: type.$body-text-size;
+  color: pink;
+  font-size: type.$body-text-size;
 }
 
 .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+
+  &--checkbox {
     display: flex;
     flex-direction: column;
     gap: spacing(1);
 
-    &--checkbox {
-        display: flex;
-        flex-direction: column;
-        gap: spacing(1);
-        div {
-            display: flex;
-            align-items: center;
-            gap: spacing(1);
-        }
+    div {
+      display: flex;
+      align-items: center;
+      gap: spacing(1);
     }
+  }
 
-    input {
-        @include type.input();
-        padding: padding(1);
-        border: 1px solid #ccc;
-        border-radius: spacing(0.5);
-    }
+  input {
+    @include type.input();
 
-    textarea {
-        padding: padding(1);
-        border: 1px solid #ccc;
-        border-radius: spacing(0.5);
-    }
+    padding: padding(1);
+    border: 1px solid #ccc;
+    border-radius: spacing(0.5);
+  }
 
-    label {
-        @include type.input-label();
-    }
+  textarea {
+    padding: padding(1);
+    border: 1px solid #ccc;
+    border-radius: spacing(0.5);
+  }
+
+  label {
+    @include type.input-label();
+  }
 }
 
 .required {
-    color: red;
+  color: red;
 }
 
 .button {
-    border-radius: spacing(0.5);
-    padding: padding(1) padding(5);
+  border-radius: spacing(0.5);
+  padding: padding(1) padding(5);
 }
 
 .contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  justify-content: center;
+  margin-top: margin(4);
+
+  li {
     display: flex;
-    flex-direction: column;
-    gap: spacing(2);
-    justify-content: center;
-    margin-top: margin(4);
+    gap: spacing(1);
+    align-items: center;
 
-    li {
-        display: flex;
-        gap: spacing(1);
-        align-items: center;
-
-        > span:first-of-type {
-            display: flex;
-            align-items: center;
-            gap: spacing(1);
-            font-weight: bold;
-        }
+    > span:first-of-type {
+      display: flex;
+      align-items: center;
+      gap: spacing(1);
+      font-weight: bold;
     }
+  }
 
+  a {
+    @include util.link();
 
-
-    a {
-        @include util.link();
-        color: col.$light;
-    }
+    color: col.$light;
+  }
 }

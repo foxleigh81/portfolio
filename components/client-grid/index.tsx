@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import classnames from 'classnames';
 
 import ClientDescription from 'components/client-description';
@@ -43,7 +43,7 @@ export const ClientGrid: React.FC<Props> = ({
   };
 
   return (
-    <section className={styles['client-grid']} {...props}>
+    <section className={cx(styles['client-grid'], className)} {...props}>
       <ul className={styles.clients_list}>
         {clients.map((client) => (
           <li

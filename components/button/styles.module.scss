@@ -23,12 +23,9 @@
   @include util.button-transparent(col.$secondary);
 }
 
-
 .button-primary-link {
   @include util.button-text;
 }
-
-
 
 .icon-none {
   :is(svg, .icon, img, picture) {
@@ -62,7 +59,6 @@
   }
 }
 
-// The error to display if the user doesn't add an onClick or a href prop
 .error {
   color: col.$danger;
   font-weight: bold;
@@ -75,5 +71,5 @@
 .small {
   column-gap: spacing(0.7);
   line-height: inherit;
-  padding: padding(0.5) padding(0.5);
+  padding: padding(0.5);
 }

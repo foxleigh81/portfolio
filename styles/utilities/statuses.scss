@@ -34,9 +34,7 @@ $statuses: (
         &:hover {
           @if lightness($color) > 50 {
             border-color: darken($color, 10%);
-          }
-
-          @else {
+          } @else {
             border-color: lighten($color, 10%);
           }
 
@@ -50,9 +48,7 @@ $statuses: (
         &:hover {
           @if lightness($color) > 50 {
             color: darken($color, 10%);
-          }
-
-          @else {
+          } @else {
             color: lighten($color, 10%);
           }
         }
@@ -64,9 +60,7 @@ $statuses: (
         &:hover {
           @if lightness($color) > 50 {
             background-color: darken($color, 10%);
-          }
-
-          @else {
+          } @else {
             background-color: lighten($color, 10%);
           }
         }
@@ -83,9 +77,7 @@ $statuses: (
 
           @if lightness($color) > 50 {
             border-color: darken($color, 10%);
-          }
-
-          @else {
+          } @else {
             border-color: lighten($color, 10%);
           }
         }

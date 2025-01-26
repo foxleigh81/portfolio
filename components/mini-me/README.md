@@ -23,11 +23,13 @@ The mini-me component is a small svg illustration which is used at various part 
 ## Usage
 
 ### ES6 Import
+
 ```js
-import MiniMe from './mini-me'
+import MiniMe from './mini-me';
 ```
 
 ### CommonJS
 
 ```js
-const MiniMe = require('./mini-me')
+const MiniMe = require('./mini-me');
+```

@@ -21,6 +21,7 @@ body {
   color: col.$body-text;
   font-family: 'Work Sans', sans-serif;
   font-size: type.$body-text-size;
+
   p:not(:last-child) {
     margin-bottom: $paragraph-spacing;
   }
@@ -28,7 +29,7 @@ body {
 
 // Sets global dark mode styles (note: most styles are handled automatically by
 // 'next-themes' so only styles that need to be overridden are included here).
-[data-theme="dark"] {
+[data-theme='dark'] {
   body {
     background: col.$grey-900;
     color: col.$body-text-inverse;
@@ -43,7 +44,6 @@ body {
 }
 
 main {
-
   h1,
   h2,
   h3,

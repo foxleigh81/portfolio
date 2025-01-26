@@ -1,72 +1,89 @@
 .masthead {
-    position: relative;
-    display: grid;
-    grid-template-rows: min-content max-content;
-    height: 500px;
-    overflow-y: hidden;
-    background: linear-gradient(253.86deg, #4E03AD 0.54%, #420293 48.6%, #2B0063 74.61%, rgba(78, 3, 173, 0.00520833) 74.62%, #2F006A 74.62%);
-    @include util.mq(bp.$medium) {
-        grid-template-rows: 50px max-content;
-    }
+  position: relative;
+  display: grid;
+  grid-template-rows: min-content max-content;
+  height: 500px;
+  overflow-y: hidden;
+  background: linear-gradient(
+    253.86deg,
+    #4e03ad 0.54%,
+    #420293 48.6%,
+    #2b0063 74.61%,
+    rgba(78, 3, 173, 0.00520833) 74.62%,
+    #2f006a 74.62%
+  );
+
+  @include util.mq(bp.$medium) {
+    grid-template-rows: 50px max-content;
+  }
 }
 
 .foreground {
-    display:grid;
-    justify-self: center;
-    margin-top: margin(2);
-    
-    @include util.mq(bp.$medium) {
-        grid-template-rows: max-content auto;
-        width: 800px;
-    }
-}
-.status {
-    position: relative;
-}
-.content {
-    position: relative;
-    display: grid;
-    
-    grid-template-columns: 1fr 1fr;
-    @include util.mq(bp.$medium) {
-        grid-template-columns: 4fr 1fr;
-    }
+  display: grid;
+  justify-self: center;
+  margin-top: margin(2);
 
+  @include util.mq(bp.$medium) {
+    grid-template-rows: max-content auto;
+    width: 800px;
+  }
+}
+
+.status {
+  position: relative;
+}
+
+.content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @include util.mq(bp.$medium) {
+    grid-template-columns: 4fr 1fr;
+  }
 }
 
 .mini-me {
-    position: absolute;
-    top: spacing(2);
-    right: 0;
-    display: none;
-    @include util.mq(bp.$medium-small) {
-        display: block;
-        height: 400px;
-        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
-    }
-    @include util.mq(bp.$medium) {
-        height: 500px;
-    }
+  position: absolute;
+  top: spacing(2);
+  right: 0;
+  display: none;
+
+  @include util.mq(bp.$medium-small) {
+    display: block;
+    height: 400px;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+  }
+
+  @include util.mq(bp.$medium) {
+    height: 500px;
+  }
 }
 
 .headers {
-    align-self: center;
-    text-align: center;
-    margin-left: margin(2);
-    @include util.mq(bp.$medium-small) {
-        text-align: left;
-    }
-    @include util.mq(bp.$medium) {
-        margin-left: 0;
-    }
-    h1 {
-        color: #fff;
-        @include type.title();
-        margin-bottom: margin(1);
-    }
+  align-self: center;
+  text-align: center;
+  margin-left: margin(2);
 
-    h2 {
-        color: #fff;
-        @include type.heading-medium();
-    }
+  @include util.mq(bp.$medium-small) {
+    text-align: left;
+  }
+
+  @include util.mq(bp.$medium) {
+    margin-left: 0;
+  }
+
+  h1 {
+    color: #fff;
+
+    @include type.title();
+
+    margin-bottom: margin(1);
+  }
+
+  h2 {
+    color: #fff;
+
+    @include type.heading-medium();
+  }
 }
