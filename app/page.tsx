@@ -6,6 +6,7 @@ import Skills from 'partials/skills';
 import Clients from 'partials/clients';
 import Testimonials from 'partials/testimonials';
 import Contact from 'partials/contact';
+import Footer from 'partials/footer';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Clients id="clients"/>
       <Testimonials id="testimonials"/>
       <Contact id="contact"/>
+      <Footer />
     </main>
   );
 }

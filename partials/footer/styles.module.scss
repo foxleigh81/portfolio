@@ -1,0 +1,17 @@
+.footer {
+  display: grid;
+  gap: spacing(1);
+  padding: padding(2) padding(1);
+  grid-template-columns: 1fr;
+  font-size: type.$small-text-size;
+  @include util.mq(bp.$medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.copy {
+  @include util.mq(bp.$medium) {
+    justify-self: end;
+    text-align: right;
+  }
+}
