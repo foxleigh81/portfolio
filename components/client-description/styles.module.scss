@@ -6,7 +6,7 @@
   align-items: center;
   padding: padding(2);
   border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000000;
   background-color: white;
 
   @include util.mq(660px) {
@@ -16,6 +16,12 @@
 
 .content {
   width: 60vw;
+}
+
+.logo {
+  position: relative;
+  width: 150px;
+  height: 150px;
 }
 
 .name {

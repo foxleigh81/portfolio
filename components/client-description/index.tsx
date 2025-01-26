@@ -45,8 +45,7 @@ export const ClientDescription: React.FC<Props> = ({
             <Image
               src={logo}
               alt={`${name} logo`}
-              width={250}
-              height={250}
+              fill
             />
           </div>
         )
