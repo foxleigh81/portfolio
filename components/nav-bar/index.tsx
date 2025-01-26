@@ -45,10 +45,10 @@ const buttons = [
 //     label: 'Testimonials',
 //     url: '#testimonials'
 //   },
-  // {
-  //   label: 'Blog',
-  //   url: '/blog'
-  // }
+// {
+//   label: 'Blog',
+//   url: '/blog'
+// }
 // ];
 
 const socialLinks = [
@@ -119,10 +119,7 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
         <ul className={styles['button-links']}>
           {buttons.map((button) => (
             <li key={button.label}>
-              <Link
-                className={styles.button}
-                href={button.url}
-              >
+              <Link className={styles.button} href={button.url}>
                 {button.label}
               </Link>
             </li>

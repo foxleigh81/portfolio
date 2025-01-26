@@ -11,12 +11,12 @@ import Footer from 'partials/footer';
 export default function Home() {
   return (
     <main>
-      <Masthead id="home"/>
-      <About id="about"/>
-      <Skills id="skills"/>
-      <Clients id="clients"/>
-      <Testimonials id="testimonials"/>
-      <Contact id="contact"/>
+      <Masthead id="home" />
+      <About id="about" />
+      <Skills id="skills" />
+      <Clients id="clients" />
+      <Testimonials id="testimonials" />
+      <Contact id="contact" />
       <Footer />
     </main>
   );

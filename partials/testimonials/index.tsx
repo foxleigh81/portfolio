@@ -57,7 +57,13 @@ export const Testimonials: React.FC<Props> = ({
               </svg>
               <div className={styles.quote}>{testimonial.quote}</div>
               <div className={styles.author}>
-                <Image className={styles.photo} src={testimonial.photo} alt={`Photo of ${testimonial.name}`} width={80} height={80} />
+                <Image
+                  className={styles.photo}
+                  src={testimonial.photo}
+                  alt={`Photo of ${testimonial.name}`}
+                  width={80}
+                  height={80}
+                />
                 <div className={styles.details}>
                   <div className={styles.name}>{testimonial.name}</div>
                   <div className={styles.role}>

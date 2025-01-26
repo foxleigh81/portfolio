@@ -48,29 +48,29 @@ export const ClientGrid: React.FC<Props> = ({
     <section className={cx(styles['client-grid'], className)} {...props}>
       <ul className={styles.clients_list}>
         {clients
-        .filter((client) => client.included)
-        .map((client) => (
-          <li
-            key={client.name}
-            className={cx(
-              styles.client,
-              activeClient?.name === client.name && styles.active
-            )}
-            onClick={() => handleDialogOpen(client)}
-            onKeyUp={(e) => e.key === 'Enter' && handleDialogOpen(client)}
-            tabIndex={0}
-          >
-            {client.logo && (
-              <Image
-                className={styles.logo}
-                src={client.logo}
-                alt={`${client.name} logo`}
-                fill
-              />
-            )}
-            {client.name}
-          </li>
-        ))}
+          .filter((client) => client.included)
+          .map((client) => (
+            <li
+              key={client.name}
+              className={cx(
+                styles.client,
+                activeClient?.name === client.name && styles.active
+              )}
+              onClick={() => handleDialogOpen(client)}
+              onKeyUp={(e) => e.key === 'Enter' && handleDialogOpen(client)}
+              tabIndex={0}
+            >
+              {client.logo && (
+                <Image
+                  className={styles.logo}
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  fill
+                />
+              )}
+              {client.name}
+            </li>
+          ))}
       </ul>
 
       <dialog className={styles['modal']} ref={dialogRef}>

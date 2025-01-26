@@ -39,17 +39,11 @@ export const ClientDescription: React.FC<Props> = ({
 }: Props) => {
   return (
     <section className={cx(styles['client-description'], className)}>
-      {
-        logo && (
-          <div className={styles.logo}>
-            <Image
-              src={logo}
-              alt={`${name} logo`}
-              fill
-            />
-          </div>
-        )
-      }
+      {logo && (
+        <div className={styles.logo}>
+          <Image src={logo} alt={`${name} logo`} fill />
+        </div>
+      )}
       <div className={styles.content}>
         <h2 className={styles.name}>{name}</h2>
         <div className={styles.meta}>
