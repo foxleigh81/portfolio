@@ -18,7 +18,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@fontsource/work-sans": "^5.0.19",
+    "@fontsource/work-sans": "^5.1.1",
     "@hookform/resolvers": "^3.10.0",
     "@preact/signals-react": "^2.2.0",
     "@types/node": "22.5.1",
