@@ -4,6 +4,12 @@
   padding: padding(2) padding(1);
   grid-template-columns: 1fr;
   font-size: type.$small-text-size;
+
+  a {
+    @include util.link;
+    font-size: type.$small-text-size;
+  }
+
   @include util.mq(bp.$medium) {
     grid-template-columns: 1fr 1fr;
   }
