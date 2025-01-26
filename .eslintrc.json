@@ -1,6 +1,76 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
+  "root": true,
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "overrides": [
+    {
+      // JSON override:
+      "files": ["**/*.json"],
+      "plugins": ["json"],
+      "rules": {
+        // Sample rule usage for eslint-plugin-json:
+        // This flags any JSON rule violations. You can tweak the config object or add more rules as needed.
+        "json/*": [
+          "error",
+          {
+            "allowComments": false
+          }
+        ]
+      }
+    },
+    {
+      // MDX override:
+      "files": ["**/*.mdx"],
+      "plugins": ["mdx"],
+      "extends": ["plugin:mdx/recommended"]
+    },
+    {
+      // Storybook override:
+      "files": ["**/*.stories.*"],
+      "plugins": ["storybook"],
+      "extends": ["plugin:storybook/recommended"],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off"
+      }
+    },
+    {
+      // TypeScript override:
+      "files": ["**/*.ts", "**/*.tsx"],
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
+        "react-hooks/exhaustive-deps": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-empty-interface": [
+          "error",
+          {
+            "allowSingleExtends": true
+          }
+        ]
+      }
+    },
+    {
+      // Markdown override:
+      "files": ["*.md"],
+      "plugins": ["markdownlint"],
+      "extends": ["plugin:markdownlint/recommended"],
+      "rules": {
+        "markdownlint/md033": "off",
+        "markdownlint/md034": "off"
+      }
+    }
   ]
 }
