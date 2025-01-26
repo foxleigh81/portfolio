@@ -80,6 +80,10 @@
   gap: 1rem;
 }
 
+.button {
+  @include util.button(col.$primary-button, col.$light);
+}
+
 .button-links {
   composes: links;
   position: absolute;
@@ -122,8 +126,8 @@
 .social-links {
   composes: links;
   position: absolute;
-  top: spacing(1);
-  left: spacing(1);
+  top: spacing(12);
+  right: spacing(1);
 
   @include util.mq(bp.$medium) {
     position: static;
