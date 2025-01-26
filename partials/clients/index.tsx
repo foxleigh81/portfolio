@@ -26,9 +26,9 @@ export const Clients: React.FC<Props> = ({ className, ...props }: Props) => {
         <h2>Who I&apos;ve worked with</h2>
 
         <p>
-          I’ve been incredibly lucky over the years to work with some truly
+          I&apos;ve been incredibly lucky over the years to work with some truly
           excellent clients and have had some amazing opportunities to make a
-          difference, from being the co-founder of the Navy’s design system to
+          difference, from being the co-founder of the Navy&apos;s design system to
           being on the Cabinet Office team who helped to develop the COVID-19
           dashboards for the daily briefing.
         </p>

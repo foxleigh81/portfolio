@@ -41,12 +41,13 @@
 }
 
 .modal[open] {
+  display: grid;
   opacity: 1;
   transform: scaleY(1);
 }
 
 .modal {
-  display: grid;
+  display: none;
   place-content: center;
   width: 100vw;
   height: 100vh;

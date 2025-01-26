@@ -29,7 +29,7 @@ export const Testimonials: React.FC<Props> = ({
           <h2>I seem to be liked</h2>
 
           <p>
-            I’ve had some great feedback from clients over the years. Here is a
+            I&apos;ve had some great feedback from clients over the years. Here is a
             small selection of some of my favourites, you can also see a more
             complete list on my{' '}
             <a href="https://www.linkedin.com/in/alexfoxleigh/">
