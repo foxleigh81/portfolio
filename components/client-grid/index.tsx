@@ -10,6 +10,7 @@ export interface Client {
   description: string;
   role: string;
   logo_url?: string;
+  included: boolean;
 }
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -45,7 +46,9 @@ export const ClientGrid: React.FC<Props> = ({
   return (
     <section className={cx(styles['client-grid'], className)} {...props}>
       <ul className={styles.clients_list}>
-        {clients.map((client) => (
+        {clients
+        .filter((client) => client.included)
+        .map((client) => (
           <li
             key={client.name}
             className={cx(
