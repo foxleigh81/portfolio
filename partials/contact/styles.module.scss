@@ -1,7 +1,12 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: spacing(2);
+  grid-template-columns: 1fr;
+  gap: spacing(4);
+
+  @include util.mq(bp.$medium) {
+    grid-template-columns: 1fr 1fr;
+    gap: spacing(2);
+  }
 }
 
 .form {
@@ -64,7 +69,9 @@
   flex-direction: column;
   gap: spacing(2);
   justify-content: center;
-  margin-top: margin(4);
+  @include util.mq(bp.$medium) {
+    margin-top: margin(3);
+  }
 
   li {
     display: flex;

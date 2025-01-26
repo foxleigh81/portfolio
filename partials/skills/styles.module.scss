@@ -30,8 +30,12 @@
   .top {
     display: grid;
     gap: spacing(2);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin-bottom: margin(2);
+
+    @include util.mq(660px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 

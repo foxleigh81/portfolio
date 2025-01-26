@@ -1,7 +1,10 @@
 .about {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: spacing(2);
+  grid-template-columns: 1fr;
+  @include util.mq(bp.$medium) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .accomplishments {
