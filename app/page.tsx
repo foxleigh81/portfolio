@@ -10,12 +10,12 @@ import Contact from 'partials/contact';
 export default function Home() {
   return (
     <main>
-      <Masthead />
-      <About />
-      <Skills />
-      <Clients />
-      <Testimonials />
-      <Contact />
+      <Masthead id="home"/>
+      <About id="about"/>
+      <Skills id="skills"/>
+      <Clients id="clients"/>
+      <Testimonials id="testimonials"/>
+      <Contact id="contact"/>
     </main>
   );
 }
