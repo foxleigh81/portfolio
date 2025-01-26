@@ -10,6 +10,7 @@ const nextConfig = {
     return config;
   },
   sassOptions: {
+    quietDeps: true,
     outputStyle: 'expanded',
     indentWidth: 4,
     additionalData: `
