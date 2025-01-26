@@ -18,11 +18,18 @@
 }
 
 .author {
+  display: flex;
+  align-items: center;
   margin-top: margin(2);
   font-size: type.$body-text-size;
   font-weight: bold;
   margin-bottom: 5px;
 
+  .photo {
+    margin-right: 10px;
+    border-radius: 20%;
+    border: 1px solid #ccc;
+  }
   .name {
     color: #333;
     font-size: type.$heading-small-size;

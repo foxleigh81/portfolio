@@ -1,12 +1,14 @@
 const testimonials = [
   {
     name: 'Lee Measures',
+    photo: '/images/peeps/lee-measures.jpeg',
     role: 'Senior software engineer',
     company: 'UK Intelligence Services',
     quote: `An incredible Software Engineer with an immense background in Front End development and a mindset for architecture; his attitude towards development is positively infectious, radiating a passion for building solid foundations for scalable, damn near autonomous solutions that make for very happy customers, and teammates who have an easier job in their day to day because of his efforts. I count myself among those who have been mentored by Foxy, and I can honestly say I wouldn't be half the dev I am now without him.`
   },
   {
     name: 'Mukesh Vatish',
+    photo: '/images/peeps/kesh.jpeg',
     role: 'Delivery Manager',
     company: 'UK Intelligence Services',
     quote:
@@ -14,6 +16,7 @@ const testimonials = [
   },
   {
     name: 'Ian Mayo',
+    photo: '/images/peeps/ian-mayo.jpeg',
     role: 'Director',
     company: 'Deep Blue C',
     quote:

@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import Block from 'components/block';
 
 import testimonials from 'lib/mocks/testimonials';
+import Image from 'next/image';
 
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {}
@@ -56,9 +57,12 @@ export const Testimonials: React.FC<Props> = ({
               </svg>
               <div className={styles.quote}>{testimonial.quote}</div>
               <div className={styles.author}>
-                <div className={styles.name}>{testimonial.name}</div>
-                <div className={styles.role}>
-                  {testimonial.role} at {testimonial.company}
+                <Image className={styles.photo} src={testimonial.photo} alt={`Photo of ${testimonial.name}`} width={80} height={80} />
+                <div className={styles.details}>
+                  <div className={styles.name}>{testimonial.name}</div>
+                  <div className={styles.role}>
+                    {testimonial.role} at {testimonial.company}
+                  </div>
                 </div>
               </div>
             </div>
