@@ -14,10 +14,13 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   description: string;
   /* My role in the project */
   role: string;
+  /** The logo for the client */
+  logo?: string;
 }
 
 /* Import Stylesheet */
 import styles from './styles.module.scss';
+import Image from 'next/image';
 
 const cx = classnames.bind(styles);
 
@@ -31,10 +34,23 @@ export const ClientDescription: React.FC<Props> = ({
   date_ended,
   description,
   role,
+  logo,
   className
 }: Props) => {
   return (
     <section className={cx(styles['client-description'], className)}>
+      {
+        logo && (
+          <div className={styles.logo}>
+            <Image
+              src={logo}
+              alt={`${name} logo`}
+              width={250}
+              height={250}
+            />
+          </div>
+        )
+      }
       <div className={styles.content}>
         <h2 className={styles.name}>{name}</h2>
         <div className={styles.meta}>

@@ -9,6 +9,7 @@
 }
 
 .client-grid li {
+  position: relative;
   display: grid;
   background-color: aliceblue;
   color: col.$dark;

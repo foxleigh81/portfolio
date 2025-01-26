@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import classnames from 'classnames';
 
 import ClientDescription from 'components/client-description';
@@ -9,7 +10,7 @@ export interface Client {
   date_ended: string;
   description: string;
   role: string;
-  logo_url?: string;
+  logo?: string;
   included: boolean;
 }
 
@@ -59,6 +60,14 @@ export const ClientGrid: React.FC<Props> = ({
             onKeyUp={(e) => e.key === 'Enter' && handleDialogOpen(client)}
             tabIndex={0}
           >
+            {client.logo && (
+              <Image
+                className={styles.logo}
+                src={client.logo}
+                alt={`${client.name} logo`}
+                fill
+              />
+            )}
             {client.name}
           </li>
         ))}
