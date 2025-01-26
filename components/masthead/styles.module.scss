@@ -18,6 +18,19 @@
   }
 }
 
+.badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: rotate(-90deg);
+
+  @include util.mq(bp.$medium) {
+    position: static;
+    margin-top: margin(2);
+
+  }
+}
+
 .foreground {
   display: grid;
   justify-self: center;
