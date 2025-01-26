@@ -2,7 +2,7 @@
   position: relative;
   display: grid;
   grid-template-rows: min-content max-content;
-  height: 500px;
+  height: 450px;
   overflow-y: hidden;
   background: linear-gradient(
     253.86deg,
@@ -45,14 +45,15 @@
 
 .mini-me {
   position: absolute;
-  top: spacing(2);
+  top: 0;
   right: 0;
   display: none;
 
-  @include util.mq(bp.$medium-small) {
+  @include util.mq(620px) {
     display: block;
     height: 400px;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+    right: spacing(4);
   }
 
   @include util.mq(bp.$medium) {
@@ -84,6 +85,10 @@
   h2 {
     color: #fff;
 
-    @include type.heading-medium();
+    @include type.heading-large();
+
+    @include util.mq(bp.$medium) {
+      @include type.heading-medium();
+    }
   }
 }
