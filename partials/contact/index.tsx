@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha/lib/esm/recaptcha';
+import { GoogleReCaptchaProvider, GoogleReCaptchaCheckbox } from '@google-recaptcha/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -24,7 +24,7 @@ export type Inputs = {
 
 const cx = classnames.bind(styles);
 
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
 
 /* Schema */
 const schema = yup.object().shape({
@@ -164,7 +164,10 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
               </li>
             </ul>
           </div>
-
+          <GoogleReCaptchaProvider
+            type="v2-checkbox"
+            siteKey={RECAPTCHA_SITE_KEY}
+          >
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles['input-container']}>
               <label htmlFor="name">
@@ -224,16 +227,9 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
             </div>
 
             <div className={styles['input-container']}>
-              <ReCAPTCHA
-                sitekey={RECAPTCHA_SITE_KEY || ''}
-                onChange={onCaptchaChange}
-                onExpired={() => setCaptchaToken(null)}
+            <GoogleReCaptchaCheckbox
+                onChange={(token) => onCaptchaChange(token)}
               />
-              {!captchaToken && (
-                <div className={styles.error}>
-                  Please complete the reCAPTCHA.
-                </div>
-              )}
             </div>
 
             <button className={cx('btn-primary', styles.button)} type="submit">
@@ -241,6 +237,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
             </button>
             {formMessage && <div className={styles.message}>{formMessage}</div>}
           </form>
+          </GoogleReCaptchaProvider>
         </div>
       </div>
     </Block>
