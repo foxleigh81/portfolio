@@ -51,7 +51,7 @@ const schema = yup.object().shape({
     .required(
       "If you're contacting me, you should probably have something to say"
     ),
-  noSale: yup.boolean().oneOf([true], "Sorry, I'm not buying."),
+  noSale: yup.boolean().oneOf([true], "Sorry, I'm not buying.")
 });
 
 const Required = () => <span className={styles.required}>*</span>;
@@ -230,7 +230,9 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                 onExpired={() => setCaptchaToken(null)}
               />
               {!captchaToken && (
-                <div className={styles.error}>Please complete the reCAPTCHA.</div>
+                <div className={styles.error}>
+                  Please complete the reCAPTCHA.
+                </div>
               )}
             </div>
 
