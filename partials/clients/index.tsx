@@ -28,8 +28,8 @@ export const Clients: React.FC<Props> = ({ className, ...props }: Props) => {
         <p>
           I&apos;ve been incredibly lucky over the years to work with some truly
           excellent clients and have had some amazing opportunities to make a
-          difference, from being the co-founder of the Navy&apos;s design system to
-          being on the Cabinet Office team who helped to develop the COVID-19
+          difference, from being the co-founder of the Navy&apos;s design system
+          to being on the Cabinet Office team who helped to develop the COVID-19
           dashboards for the daily briefing.
         </p>
 
