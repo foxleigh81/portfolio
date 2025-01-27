@@ -18,6 +18,7 @@ import { LuBird } from 'react-icons/lu';
 import { FaGithub } from 'react-icons/fa';
 
 import styles from './styles.module.scss';
+import { set } from 'date-fns';
 
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {}
@@ -79,7 +80,8 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
 
   useEffect(() => {
     if (!captchaToken) return;
-
+    // Reset the form message when the token is set
+    setFormMessage(null);
     // Set a timeout to invalidate the token after 2 minutes
     const timeout = setTimeout(() => {
       setCaptchaToken(null);
