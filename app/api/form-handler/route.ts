@@ -25,7 +25,6 @@ export async function POST(req: Request) {
     );
 
     const recaptchaResult = await recaptchaResponse.json();
-
     if (!recaptchaResult.success) {
       return NextResponse.json({
         status: 'error',
@@ -35,7 +34,7 @@ export async function POST(req: Request) {
 
     // Send email via Postmark
     const response = await client.sendEmail({
-      From: 'alex@alexfoxleigh.com', // Sender's email address
+      From: 'no-reply@alexfoxleigh.com', // Sender's email address
       To: 'alex@alexfoxleigh.com', // Receiver's email address
       Subject: `[Portfolio] New Form Submission from ${name}`,
       TextBody: `

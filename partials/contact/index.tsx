@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   GoogleReCaptchaProvider,
   GoogleReCaptchaCheckbox
@@ -32,7 +32,7 @@ export type Inputs = {
 
 type FormMessage = {
   message: string;
-  status: 'error' | 'success';
+  status: 'error' | 'success' | 'warning';
 };
 
 const cx = classnames.bind(styles);
@@ -42,13 +42,9 @@ const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
 /* Schema */
 const schema = yup.object().shape({
   name: yup.string().required('Please enter your name'),
-
-  // Just validates for a valid email format, not required unless contactNumber is empty.
   email: yup.string().email('Please enter a valid email address'),
-
-  // Only required if email is empty.
   contactNumber: yup.string().when('email', {
-    is: (val: string | undefined) => !val, // i.e. empty or undefined
+    is: (val: string | undefined) => !val,
     then: (schema) =>
       schema
         .required('Contact number is required when email is not provided')
@@ -58,7 +54,6 @@ const schema = yup.object().shape({
         ),
     otherwise: (schema) => schema.notRequired()
   }),
-
   message: yup
     .string()
     .required(
@@ -76,10 +71,6 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formMessage, setFormMessage] = useState<FormMessage | null>(null);
 
-  const onCaptchaChange = (token: string | null) => {
-    setCaptchaToken(token);
-  };
-
   const {
     register,
     handleSubmit,
@@ -87,6 +78,25 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
   } = useForm<Inputs>({
     resolver: yupResolver(schema)
   });
+
+  useEffect(() => {
+    if (!captchaToken) return;
+    // Reset the form message when the token is set
+    setFormMessage(null);
+    // Set a timeout to invalidate the token after 2 minutes
+    const timeout = setTimeout(
+      () => {
+        setCaptchaToken(null);
+        setFormMessage({
+          message: 'reCAPTCHA token has expired. Please try again.',
+          status: 'warning'
+        });
+      },
+      2 * 60 * 1000
+    ); // 2 minutes
+
+    return () => clearTimeout(timeout);
+  }, [captchaToken]);
 
   const onSubmit = async (data: Inputs) => {
     if (!captchaToken) {
@@ -103,7 +113,10 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          ...data,
+          recaptchaToken: captchaToken
+        })
       });
 
       if (!response.ok) {
@@ -113,7 +126,6 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       const result = await response.json();
       console.log('Form submitted successfully:', result);
 
-      // Optional: Add success feedback to the user
       setFormMessage({
         message:
           'Thanks for getting in touch! I will get back to you as soon as I can.',
@@ -121,7 +133,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       });
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Optional: Add error feedback to the user
+
       setFormMessage({
         message:
           'An error occurred while submitting the form. Please try again later.',
@@ -262,7 +274,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                   </p>
                 ) : (
                   <GoogleReCaptchaCheckbox
-                    onChange={(token) => onCaptchaChange(token)}
+                    onChange={(token) => setCaptchaToken(token)}
                   />
                 )}
               </div>
