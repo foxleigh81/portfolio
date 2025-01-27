@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -61,6 +61,9 @@ const Required = () => <span className={styles.required}>*</span>;
  * The Contact component is used to display the main 'contact' section of my portfolio
  */
 export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
+
+  const [formMessage, setFormMessage] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -69,9 +72,30 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data: Inputs) => {
-    // Handle form submission logic
-    console.log(data);
+  const onSubmit = async (data: Inputs) => {
+    try {
+      const response = await fetch('/api/form-handler', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit the form');
+      }
+
+      const result = await response.json();
+      console.log('Form submitted successfully:', result);
+
+      // Optional: Add success feedback to the user
+      setFormMessage('Thank you for your message! I will get back to you soon.');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Optional: Add error feedback to the user
+      setFormMessage('There was an issue submitting the form. Please try again.');
+    }
   };
 
   return (
@@ -209,6 +233,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
             <button className={cx('btn-primary', styles.button)} type="submit">
               Submit
             </button>
+            {formMessage && <div className={styles.message}>{formMessage}</div>}
           </form>
         </div>
       </div>
