@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -19,10 +20,11 @@ export type Inputs = {
   contactNumber?: string;
   message: string;
   noSale?: boolean;
-  botCheck?: boolean;
 };
 
 const cx = classnames.bind(styles);
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 /* Schema */
 const schema = yup.object().shape({
@@ -50,9 +52,6 @@ const schema = yup.object().shape({
       "If you're contacting me, you should probably have something to say"
     ),
   noSale: yup.boolean().oneOf([true], "Sorry, I'm not buying."),
-  botCheck: yup
-    .boolean()
-    .oneOf([true], "Sorry, I'm not willing to work for robots just yet.")
 });
 
 const Required = () => <span className={styles.required}>*</span>;
@@ -61,7 +60,12 @@ const Required = () => <span className={styles.required}>*</span>;
  * The Contact component is used to display the main 'contact' section of my portfolio
  */
 export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formMessage, setFormMessage] = useState<string | null>(null);
+
+  const onCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+  };
 
   const {
     register,
@@ -72,6 +76,11 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
   });
 
   const onSubmit = async (data: Inputs) => {
+    if (!captchaToken) {
+      setFormMessage('Please complete the reCAPTCHA verification.');
+      return;
+    }
+
     try {
       const response = await fetch('/api/form-handler', {
         method: 'POST',
@@ -202,7 +211,6 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
             </div>
 
             <div className={styles['input-container--checkbox']}>
-              {/* TODO: Replace with ReCaptcha */}
               <div>
                 <input type="checkbox" id="noSale" {...register('noSale')} />
                 <label htmlFor="noSale">
@@ -215,21 +223,14 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
               )}
             </div>
 
-            <div className={styles['input-container--checkbox']}>
-              {/* TODO: Replace with ReCaptcha */}
-              <div>
-                <input
-                  type="checkbox"
-                  id="botCheck"
-                  {...register('botCheck')}
-                />
-                <label htmlFor="botCheck">
-                  I am not a bot
-                  <Required />
-                </label>
-              </div>
-              {errors.botCheck && (
-                <div className={styles.error}>{errors.botCheck.message}</div>
+            <div className={styles['input-container']}>
+              <ReCAPTCHA
+                sitekey={RECAPTCHA_SITE_KEY}
+                onChange={onCaptchaChange}
+                onExpired={() => setCaptchaToken(null)}
+              />
+              {!captchaToken && (
+                <div className={styles.error}>Please complete the reCAPTCHA.</div>
               )}
             </div>
 
