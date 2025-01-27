@@ -57,7 +57,9 @@ const schema = yup.object().shape({
   }),
   message: yup
     .string()
-    .required("If you're contacting me, you should probably have something to say"),
+    .required(
+      "If you're contacting me, you should probably have something to say"
+    ),
   noSale: yup.boolean().oneOf([true], "Sorry, I'm not buying.")
 });
 
@@ -83,13 +85,16 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
     // Reset the form message when the token is set
     setFormMessage(null);
     // Set a timeout to invalidate the token after 2 minutes
-    const timeout = setTimeout(() => {
-      setCaptchaToken(null);
-      setFormMessage({
-        message: 'reCAPTCHA token has expired. Please try again.',
-        status: 'warning'
-      });
-    }, 2 * 60 * 1000); // 2 minutes
+    const timeout = setTimeout(
+      () => {
+        setCaptchaToken(null);
+        setFormMessage({
+          message: 'reCAPTCHA token has expired. Please try again.',
+          status: 'warning'
+        });
+      },
+      2 * 60 * 1000
+    ); // 2 minutes
 
     return () => clearTimeout(timeout);
   }, [captchaToken]);
