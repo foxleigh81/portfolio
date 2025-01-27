@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { GoogleReCaptchaProvider, GoogleReCaptchaCheckbox } from '@google-recaptcha/react';
+import {
+  GoogleReCaptchaProvider,
+  GoogleReCaptchaCheckbox
+} from '@google-recaptcha/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import classnames from 'classnames';
 import Block from 'components/block';
-import { MdOutlineEmail, MdOutlineLocalPhone, MdOutlineCheckBox } from 'react-icons/md';
+import {
+  MdOutlineEmail,
+  MdOutlineLocalPhone,
+  MdOutlineCheckBox
+} from 'react-icons/md';
 import { PiLinkedinLogoBold } from 'react-icons/pi';
 import { LuBird } from 'react-icons/lu';
 
@@ -25,7 +32,7 @@ export type Inputs = {
 type FormMessage = {
   message: string;
   status: 'error' | 'success';
-}
+};
 
 const cx = classnames.bind(styles);
 
@@ -106,21 +113,19 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       console.log('Form submitted successfully:', result);
 
       // Optional: Add success feedback to the user
-      setFormMessage(
-        {
-          message: 'Thanks for getting in touch! I will get back to you as soon as I can.',
-          status: 'success'
-        }
-      );
+      setFormMessage({
+        message:
+          'Thanks for getting in touch! I will get back to you as soon as I can.',
+        status: 'success'
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
       // Optional: Add error feedback to the user
-      setFormMessage(
-        {
-          message: 'An error occurred while submitting the form. Please try again later.',
-          status: 'error'
-        }
-      );
+      setFormMessage({
+        message:
+          'An error occurred while submitting the form. Please try again later.',
+        status: 'error'
+      });
     }
   };
 
@@ -182,77 +187,95 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
             type="v2-checkbox"
             siteKey={RECAPTCHA_SITE_KEY}
           >
-          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles['input-container']}>
-              <label htmlFor="name">
-                Name
-                <Required />
-              </label>
-              <input type="text" id="name" {...register('name')} />
-              {errors.name && (
-                <div className={styles.error}>{errors.name.message}</div>
-              )}
-            </div>
-
-            <div className={styles['input-container']}>
-              <label htmlFor="email">Email</label>
-              <input type="text" id="email" {...register('email')} />
-              {errors.email && (
-                <div className={styles.error}>{errors.email.message}</div>
-              )}
-            </div>
-
-            <div className={styles['input-container']}>
-              <label htmlFor="contactNumber">Contact Number</label>
-              <input
-                type="text"
-                id="contactNumber"
-                {...register('contactNumber')}
-              />
-              {errors.contactNumber && (
-                <div className={styles.error}>
-                  {errors.contactNumber.message}
-                </div>
-              )}
-            </div>
-
-            <div className={styles['input-container']}>
-              <label htmlFor="message">
-                Message
-                <Required />
-              </label>
-              <textarea id="message" rows={10} {...register('message')} />
-              {errors.message && (
-                <div className={styles.error}>{errors.message.message}</div>
-              )}
-            </div>
-
-            <div className={styles['input-container--checkbox']}>
-              <div>
-                <input type="checkbox" id="noSale" {...register('noSale')} />
-                <label htmlFor="noSale">
-                  I am not trying to sell you something
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+              <div className={styles['input-container']}>
+                <label htmlFor="name">
+                  Name
                   <Required />
                 </label>
+                <input type="text" id="name" {...register('name')} />
+                {errors.name && (
+                  <div className={styles.error}>{errors.name.message}</div>
+                )}
               </div>
-              {errors.noSale && (
-                <div className={styles.error}>{errors.noSale.message}</div>
-              )}
-            </div>
 
-            <div className={styles['input-container']}>
-            {captchaToken ? <p className={styles['captcha-complete']}><MdOutlineCheckBox /> ReCaptcha complete</p> :<GoogleReCaptchaCheckbox
-                onChange={(token) => onCaptchaChange(token)}
-              />}
-            </div>
+              <div className={styles['input-container']}>
+                <label htmlFor="email">Email</label>
+                <input type="text" id="email" {...register('email')} />
+                {errors.email && (
+                  <div className={styles.error}>{errors.email.message}</div>
+                )}
+              </div>
 
-            {formMessage?.status !== 'success' && (
-              <button className={cx('btn-primary', styles.button)} type="submit">
-                Submit
-              </button>
+              <div className={styles['input-container']}>
+                <label htmlFor="contactNumber">Contact Number</label>
+                <input
+                  type="text"
+                  id="contactNumber"
+                  {...register('contactNumber')}
+                />
+                {errors.contactNumber && (
+                  <div className={styles.error}>
+                    {errors.contactNumber.message}
+                  </div>
+                )}
+              </div>
+
+              <div className={styles['input-container']}>
+                <label htmlFor="message">
+                  Message
+                  <Required />
+                </label>
+                <textarea id="message" rows={10} {...register('message')} />
+                {errors.message && (
+                  <div className={styles.error}>{errors.message.message}</div>
+                )}
+              </div>
+
+              <div className={styles['input-container--checkbox']}>
+                <div>
+                  <input type="checkbox" id="noSale" {...register('noSale')} />
+                  <label htmlFor="noSale">
+                    I am not trying to sell you something
+                    <Required />
+                  </label>
+                </div>
+                {errors.noSale && (
+                  <div className={styles.error}>{errors.noSale.message}</div>
+                )}
+              </div>
+
+              <div className={styles['input-container']}>
+                {captchaToken ? (
+                  <p className={styles['captcha-complete']}>
+                    <MdOutlineCheckBox /> ReCaptcha complete
+                  </p>
+                ) : (
+                  <GoogleReCaptchaCheckbox
+                    onChange={(token) => onCaptchaChange(token)}
+                  />
+                )}
+              </div>
+
+              {formMessage?.status !== 'success' && (
+                <button
+                  className={cx('btn-primary', styles.button)}
+                  type="submit"
+                >
+                  Submit
+                </button>
               )}
-            {formMessage && <div className={cx(styles.message, styles[`${formMessage.status}-status`])}>{formMessage.message}</div>}
-          </form>
+              {formMessage && (
+                <div
+                  className={cx(
+                    styles.message,
+                    styles[`${formMessage.status}-status`]
+                  )}
+                >
+                  {formMessage.message}
+                </div>
+              )}
+            </form>
           </GoogleReCaptchaProvider>
         </div>
       </div>
