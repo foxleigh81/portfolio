@@ -15,6 +15,7 @@ import {
 } from 'react-icons/md';
 import { PiLinkedinLogoBold } from 'react-icons/pi';
 import { LuBird } from 'react-icons/lu';
+import { FaGithub } from "react-icons/fa";
 
 import styles from './styles.module.scss';
 
@@ -172,6 +173,15 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                 </span>
                 <a href="https://www.linkedin.com/in/alexfoxleigh">
                   <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <span>
+                  <FaGithub />
+                  GitHub:
+                </span>
+                <a href="https://github.com/foxleigh81">
+                  <span>foxleigh81</span>
                 </a>
               </li>
               <li>
