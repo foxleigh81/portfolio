@@ -32,7 +32,10 @@
 }
 
 .button {
-  @include util.button(color.adjust(col.$success, $lightness: -10%), col.$light);
+  @include util.button(
+    color.adjust(col.$success, $lightness: -10%),
+    col.$light
+  );
   justify-self: center;
 
   @include util.mq(bp.$medium) {

@@ -15,7 +15,7 @@ import {
 } from 'react-icons/md';
 import { PiLinkedinLogoBold } from 'react-icons/pi';
 import { LuBird } from 'react-icons/lu';
-import { FaGithub } from "react-icons/fa";
+import { FaGithub } from 'react-icons/fa';
 
 import styles from './styles.module.scss';
 

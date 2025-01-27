@@ -63,10 +63,7 @@ export const Availability: React.FC<Props> = ({
     >
       <div className={styles.content}>
         <p>{returnStatus(status, date)}</p>
-        <Link
-          href="#contact"
-          className={styles['button']}
-        >
+        <Link href="#contact" className={styles['button']}>
           Get in touch
         </Link>
       </div>
