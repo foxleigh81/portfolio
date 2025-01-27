@@ -61,7 +61,6 @@ const Required = () => <span className={styles.required}>*</span>;
  * The Contact component is used to display the main 'contact' section of my portfolio
  */
 export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
-
   const [formMessage, setFormMessage] = useState<string | null>(null);
 
   const {
@@ -77,9 +76,9 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       const response = await fetch('/api/form-handler', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       });
 
       if (!response.ok) {
@@ -90,11 +89,15 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       console.log('Form submitted successfully:', result);
 
       // Optional: Add success feedback to the user
-      setFormMessage('Thank you for your message! I will get back to you soon.');
+      setFormMessage(
+        'Thank you for your message! I will get back to you soon.'
+      );
     } catch (error) {
       console.error('Error submitting form:', error);
       // Optional: Add error feedback to the user
-      setFormMessage('There was an issue submitting the form. Please try again.');
+      setFormMessage(
+        'There was an issue submitting the form. Please try again.'
+      );
     }
   };
 

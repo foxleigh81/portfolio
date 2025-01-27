@@ -4,7 +4,9 @@ import { NextResponse } from 'next/server';
 import * as postmark from 'postmark';
 
 // Initialize Postmark client
-const client = new postmark.ServerClient('b5ff653a-711d-4a26-bb6d-45b1772c96ff');
+const client = new postmark.ServerClient(
+  'b5ff653a-711d-4a26-bb6d-45b1772c96ff'
+);
 
 export async function POST(req: Request) {
   const { name, email, contactNumber, message } = await req.json();
@@ -24,19 +26,25 @@ export async function POST(req: Request) {
         Message:
         ${message}
       `,
-      MessageStream: "outbound"
+      MessageStream: 'outbound'
     });
 
     console.log('Email sent successfully:', response);
-    return NextResponse.json({ status: 'success', message: 'Email sent successfully.' });
+    return NextResponse.json({
+      status: 'success',
+      message: 'Email sent successfully.'
+    });
   } catch (error) {
     console.error('Error sending email:', error);
-    return NextResponse.json({ status: 'error', message: 'Failed to send email.' });
+    return NextResponse.json({
+      status: 'error',
+      message: 'Failed to send email.'
+    });
   }
 }
 
 export async function GET() {
   return NextResponse.json({
-    message: 'This endpoint only accepts POST requests.',
+    message: 'This endpoint only accepts POST requests.'
   });
 }
