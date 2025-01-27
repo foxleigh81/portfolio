@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha/lib/esm/recaptcha';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -225,7 +225,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
 
             <div className={styles['input-container']}>
               <ReCAPTCHA
-                sitekey={RECAPTCHA_SITE_KEY}
+                sitekey={RECAPTCHA_SITE_KEY || ''}
                 onChange={onCaptchaChange}
                 onExpired={() => setCaptchaToken(null)}
               />
