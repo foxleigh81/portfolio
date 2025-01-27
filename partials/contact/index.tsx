@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import classnames from 'classnames';
 import Block from 'components/block';
-import { MdOutlineEmail, MdOutlineLocalPhone } from 'react-icons/md';
+import { MdOutlineEmail, MdOutlineLocalPhone, MdOutlineCheckBox } from 'react-icons/md';
 import { PiLinkedinLogoBold } from 'react-icons/pi';
 import { LuBird } from 'react-icons/lu';
 
@@ -21,6 +21,11 @@ export type Inputs = {
   message: string;
   noSale?: boolean;
 };
+
+type FormMessage = {
+  message: string;
+  status: 'error' | 'success';
+}
 
 const cx = classnames.bind(styles);
 
@@ -61,7 +66,7 @@ const Required = () => <span className={styles.required}>*</span>;
  */
 export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [formMessage, setFormMessage] = useState<string | null>(null);
+  const [formMessage, setFormMessage] = useState<FormMessage | null>(null);
 
   const onCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
@@ -77,7 +82,10 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
 
   const onSubmit = async (data: Inputs) => {
     if (!captchaToken) {
-      setFormMessage('Please complete the reCAPTCHA verification.');
+      setFormMessage({
+        message: 'Please complete the reCAPTCHA challenge',
+        status: 'error'
+      });
       return;
     }
 
@@ -99,13 +107,19 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
 
       // Optional: Add success feedback to the user
       setFormMessage(
-        'Thank you for your message! I will get back to you soon.'
+        {
+          message: 'Thanks for getting in touch! I will get back to you as soon as I can.',
+          status: 'success'
+        }
       );
     } catch (error) {
       console.error('Error submitting form:', error);
       // Optional: Add error feedback to the user
       setFormMessage(
-        'There was an issue submitting the form. Please try again.'
+        {
+          message: 'An error occurred while submitting the form. Please try again later.',
+          status: 'error'
+        }
       );
     }
   };
@@ -227,15 +241,17 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
             </div>
 
             <div className={styles['input-container']}>
-            <GoogleReCaptchaCheckbox
+            {captchaToken ? <p className={styles['captcha-complete']}><MdOutlineCheckBox /> ReCaptcha complete</p> :<GoogleReCaptchaCheckbox
                 onChange={(token) => onCaptchaChange(token)}
-              />
+              />}
             </div>
 
-            <button className={cx('btn-primary', styles.button)} type="submit">
-              Submit
-            </button>
-            {formMessage && <div className={styles.message}>{formMessage}</div>}
+            {formMessage?.status !== 'success' && (
+              <button className={cx('btn-primary', styles.button)} type="submit">
+                Submit
+              </button>
+              )}
+            {formMessage && <div className={cx(styles.message, styles[`${formMessage.status}-status`])}>{formMessage.message}</div>}
           </form>
           </GoogleReCaptchaProvider>
         </div>
