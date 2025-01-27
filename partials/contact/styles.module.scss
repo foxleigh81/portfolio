@@ -42,6 +42,10 @@
     background-color: col.$danger;
     color: col.$light;
   }
+  &.warning-status {
+    background-color: col.$warning;
+    color: col.$light;
+  }
 }
 
 .input-container {
