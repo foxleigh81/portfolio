@@ -4,14 +4,35 @@ import { NextResponse } from 'next/server';
 import * as postmark from 'postmark';
 
 // Initialize Postmark client
-const client = new postmark.ServerClient(
-  'b5ff653a-711d-4a26-bb6d-45b1772c96ff'
-);
+const client = new postmark.ServerClient(process.env.POSTMARK_SERVER_TOKEN!); // Your Postmark server token
 
 export async function POST(req: Request) {
-  const { name, email, contactNumber, message } = await req.json();
+  const { name, email, contactNumber, message, recaptchaToken } =
+    await req.json();
 
   try {
+    // Verify reCAPTCHA token with Google
+    const recaptchaResponse = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET_KEY!, // Your reCAPTCHA secret key from Google
+          response: recaptchaToken
+        })
+      }
+    );
+
+    const recaptchaResult = await recaptchaResponse.json();
+
+    if (!recaptchaResult.success) {
+      return NextResponse.json({
+        status: 'error',
+        message: 'reCAPTCHA verification failed. Please try again.'
+      });
+    }
+
     // Send email via Postmark
     const response = await client.sendEmail({
       From: 'alex@alexfoxleigh.com', // Sender's email address

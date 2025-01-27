@@ -1,6 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import classnames from 'classnames';
+import Link from 'next/link';
 
 export const statuses = [
   'available',
@@ -26,11 +27,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 import styles from './styles.module.scss';
 
 const cx = classnames.bind(styles);
-
-/* Import Components */
-import { Button } from '../button';
-
-const contactMe = () => window.open('/contact');
 
 const returnStatus = (status: string, date?: string) => {
   const prettyDate = date ? format(new Date(date), 'do MMMM yyyy') : null;
@@ -64,13 +60,9 @@ export const Availability: React.FC<Props> = ({
     >
       <div className={styles.content}>
         <p>{returnStatus(status, date)}</p>
-        <Button
-          variant="availability"
-          onClick={contactMe}
-          className={styles['button']}
-        >
+        <Link href="#contact" className={styles['button']}>
           Get in touch
-        </Button>
+        </Link>
       </div>
     </div>
   );

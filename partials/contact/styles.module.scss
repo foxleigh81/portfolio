@@ -19,6 +19,31 @@
   font-size: type.$body-text-size;
 }
 
+.captcha-complete {
+  display: flex;
+  align-items: center;
+  gap: spacing(1);
+
+  svg {
+    height: type.$large-text-size;
+    width: type.$large-text-size;
+    margin-left: -2px;
+  }
+}
+.message {
+  padding: padding(1) padding(2);
+  border-radius: $border-radius;
+  font-size: type.$large-text-size;
+  &.success-status {
+    background-color: col.$success;
+    color: col.$light;
+  }
+  &.error-status {
+    background-color: col.$danger;
+    color: col.$light;
+  }
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
