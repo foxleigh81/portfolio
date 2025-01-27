@@ -18,7 +18,6 @@ import { LuBird } from 'react-icons/lu';
 import { FaGithub } from 'react-icons/fa';
 
 import styles from './styles.module.scss';
-import { set } from 'date-fns';
 
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {}
