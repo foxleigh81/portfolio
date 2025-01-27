@@ -29,8 +29,7 @@ const cx = classnames.bind(styles);
 
 /* Import Components */
 import { Button } from '../button';
-
-const contactMe = () => window.open('/contact');
+import Link from 'next/link';
 
 const returnStatus = (status: string, date?: string) => {
   const prettyDate = date ? format(new Date(date), 'do MMMM yyyy') : null;
@@ -64,13 +63,12 @@ export const Availability: React.FC<Props> = ({
     >
       <div className={styles.content}>
         <p>{returnStatus(status, date)}</p>
-        <Button
-          variant="availability"
-          onClick={contactMe}
+        <Link
+          href="#contact"
           className={styles['button']}
         >
           Get in touch
-        </Button>
+        </Link>
       </div>
     </div>
   );
