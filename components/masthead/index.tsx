@@ -14,7 +14,6 @@ import salutation from './helpers/salutation';
 import { MiniMe } from '../mini-me';
 import { NavBar } from '../nav-bar';
 import { Availability, statuses } from '../availability';
-import Badge from 'components/badge';
 
 /* Types */
 
@@ -68,13 +67,6 @@ export const Masthead: React.FC<Props> = ({
               Foxleigh
             </h1>
             <h2>Professional web-dude since 1998</h2>
-            <Link href="https://github.com/foxleigh81/portfolio/issues">
-              <Badge
-                className={styles['badge']}
-                text="Beta"
-                background="rebeccapurple"
-              />
-            </Link>
           </div>
           <MiniMe variant={miniMeVariant} className={styles['mini-me']} />
         </div>
