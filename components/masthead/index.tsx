@@ -1,6 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import Link from 'next/link';
 
 import { variants as miniMeVariants } from '../mini-me';
 
