@@ -47,7 +47,7 @@ const navLinks = [
   },
   {
     label: 'Blog',
-    url: '/blog',
+    url: 'https://www.foxleigh.me',
   },
 ];
 
@@ -64,7 +64,6 @@ const socialLinks = [
   },
 ];
 
-// --- TODO: Replace 768 with the actual pixel value for bp.$medium ---
 const MEDIUM_BREAKPOINT_PX = 768;
 // --------------------------------------------------------------------
 
