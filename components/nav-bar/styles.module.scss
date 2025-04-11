@@ -1,12 +1,6 @@
 .nav-wrapper {
   width: 100%;
   transition: background-color 0.3s ease-in-out;
-
-  @include util.mq(bp.$medium) {
-    &:not(.fixed) {
-      padding-bottom: margin(2);
-    }
-  }
 }
 
 .fixed {
@@ -14,40 +8,83 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(col.$primary, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 9997;
-  padding-top: padding(1);
-  padding-bottom: padding(1);
+
+  .burger {
+    @include util.mq(bp.$medium, 'max') {
+      background-color: rgba(col.$primary, 0.9);
+      backdrop-filter: blur(8px);
+      border-radius: border-radius(1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: fit-content;
+      height: fit-content;
+    }
+  }
 }
 
 .nav-bar {
+  // Base mobile styles (hidden off-screen initially)
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(col.$primary, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 9998;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: spacing(10) 0;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition:
+    transform 0.5s ease-in-out,
+    visibility 0.5s ease-in-out;
 
+  // Desktop overrides
   @include util.mq(bp.$medium) {
-    flex-direction: row;
-    width: 100%;
+    position: relative;
+    @include util.central-container();
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: padding(2);
+    padding-right: padding(2);
+    height: auto;
+    background-color: transparent;
+    backdrop-filter: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    transform: none;
+    visibility: visible;
+    transition: none;
+
+    // Styles when fixed
+    .nav-wrapper.fixed & {
+      background-color: rgba(col.$primary, 0.9);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding-top: padding(1);
+      padding-bottom: padding(1);
+    }
   }
 }
 
 .burger {
   display: block;
-  height: 2rem;
-  width: auto;
-  position: absolute;
-  top: spacing(12);
-  right: spacing(1);
+  position: fixed;
+  top: padding(1);
+  right: padding(1);
   z-index: 9999;
   cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out;
+  background-color: transparent;
+  padding: padding(1);
+  border-radius: 0;
 
   @include util.mq(bp.$medium) {
     display: none;
@@ -77,30 +114,13 @@
   }
 }
 
-.menu-closed {
-  display: none;
-
-  @include util.mq(bp.$medium) {
-    display: flex;
-  }
-}
-
 .menu-open {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(col.$primary, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 9998;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: spacing(10) 0;
+  // Styles to apply when menu is open (triggers transition)
+  transform: translateY(0);
+  visibility: visible;
 
+  // Remove desktop overrides from here, handled in .nav-bar now
+  /*
   @include util.mq(bp.$medium) {
     position: relative;
     height: auto;
@@ -115,6 +135,7 @@
     justify-content: flex-start;
     padding: 0;
   }
+  */
 }
 
 .links {

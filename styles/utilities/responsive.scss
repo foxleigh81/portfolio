@@ -1,8 +1,16 @@
 //NOTE: If you are looking for the breakpoint variables, they are in styles/breakpoints.scss
 
 // A mixin to simplify writing breakpoints
-@mixin mq($size) {
-  @media only screen and (min-width: $size) {
-    @content;
+// $direction: 'min' (default) or 'max'
+@mixin mq($size, $direction: 'min') {
+  @if $direction == 'max' {
+    // Subtract 1px to avoid overlap with min-width queries
+    @media only screen and (max-width: #{$size - 1px}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $size) {
+      @content;
+    }
   }
 }

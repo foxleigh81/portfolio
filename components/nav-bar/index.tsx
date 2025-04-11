@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import classNames from 'classnames';
 
 /* Import Stylesheet */
@@ -7,7 +8,6 @@ import styles from './styles.module.scss';
 
 import GitHub from './images/github.svg';
 import LinkedIn from './images/linkedin.svg';
-import Link from 'next/link';
 
 const cx = classNames.bind(styles);
 
@@ -64,6 +64,10 @@ const socialLinks = [
   },
 ];
 
+// --- TODO: Replace 768 with the actual pixel value for bp.$medium ---
+const MEDIUM_BREAKPOINT_PX = 768;
+// --------------------------------------------------------------------
+
 export type Props = React.HTMLAttributes<HTMLDivElement>;
 
 /**
@@ -74,15 +78,34 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
   const [isFixed, setIsFixed] = useState(false);
   const [navOffsetTop, setNavOffsetTop] = useState<number>(0);
   const [navHeight, setNavHeight] = useState<number>(0);
+  const [isDesktop, setIsDesktop] = useState(false); // State for viewport size
   const navWrapperRef = useRef<HTMLDivElement>(null);
 
+  // Effect to check viewport size on mount and resize
   useEffect(() => {
-    if (navWrapperRef.current) {
-      setNavOffsetTop(navWrapperRef.current.offsetTop);
-      setNavHeight(navWrapperRef.current.offsetHeight);
-    }
+    const checkViewport = () => {
+      setIsDesktop(window.matchMedia(`(min-width: ${MEDIUM_BREAKPOINT_PX}px)`).matches);
+    };
+
+    checkViewport(); // Initial check
+    window.addEventListener('resize', checkViewport);
+
+    return () => window.removeEventListener('resize', checkViewport);
   }, []);
 
+  // Effect to get initial offset and height
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (navWrapperRef.current) {
+        setNavOffsetTop(navWrapperRef.current.offsetTop);
+        setNavHeight(navWrapperRef.current.offsetHeight);
+      }
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  // Effect to handle scroll event (debounced)
   useEffect(() => {
     const handleScroll = () => {
       if (navOffsetTop) {
@@ -90,10 +113,17 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    let scrollTimeout: NodeJS.Timeout | null = null;
+    const debouncedHandleScroll = () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScroll, 10);
+    };
+
+    window.addEventListener('scroll', debouncedHandleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      window.removeEventListener('scroll', debouncedHandleScroll);
     };
   }, [navOffsetTop]);
 
@@ -151,7 +181,8 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
           </ul>
         </nav>
       </div>
-      {isFixed && <div style={{ height: `${navHeight}px` }} />}
+      {/* Placeholder div rendered only when fixed AND on desktop */}
+      {isFixed && isDesktop && <div style={{ height: `${navHeight}px` }} />}
     </>
   );
 };
