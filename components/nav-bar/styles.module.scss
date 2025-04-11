@@ -10,6 +10,15 @@
   width: 100%;
   z-index: 9997;
 
+  // Apply visual styles only on desktop when fixed
+  @include util.mq(bp.$medium) {
+    background-color: rgba(col.$primary, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding-top: padding(1);
+    padding-bottom: padding(1);
+  }
+
   .burger {
     @include util.mq(bp.$medium, 'max') {
       background-color: rgba(col.$primary, 0.9);
@@ -60,15 +69,6 @@
     transform: none;
     visibility: visible;
     transition: none;
-
-    // Styles when fixed
-    .nav-wrapper.fixed & {
-      background-color: rgba(col.$primary, 0.9);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding-top: padding(1);
-      padding-bottom: padding(1);
-    }
   }
 }
 
