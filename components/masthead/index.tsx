@@ -1,6 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import Link from 'next/link';
 
 import { variants as miniMeVariants } from '../mini-me';
 
@@ -48,15 +47,8 @@ export const Masthead: React.FC<Props> = ({
 }: Props) => {
   const { lightLevel } = salutation(hour || undefined);
   return (
-    <div
-      {...props}
-      className={cx(styles['masthead'], styles[lightLevel], className)}
-    >
-      <Availability
-        className={styles.status}
-        status={availability}
-        date={date}
-      />
+    <div {...props} className={cx(styles['masthead'], styles[lightLevel], className)}>
+      <Availability className={styles.status} status={availability} date={date} />
       <div className={styles.foreground}>
         <NavBar />
         <div className={styles['content']}>
