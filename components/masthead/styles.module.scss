@@ -50,6 +50,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-top: padding(1);
 
   @include util.mq(bp.$medium) {
     grid-template-columns: 4fr 1fr;
