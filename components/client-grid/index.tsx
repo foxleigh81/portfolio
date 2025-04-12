@@ -80,7 +80,11 @@ const cx = classnames.bind(styles);
 /**
  * The component to display my clients in a nice way
  */
-export const ClientGrid: React.FC<Props> = ({ clients, className, ...props }: Props) => {
+export const ClientGrid: React.FC<Props> = ({
+  clients,
+  className,
+  ...props
+}: Props) => {
   const [activeClient, setActiveClient] = useState<Client | null>(null);
 
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -98,13 +102,16 @@ export const ClientGrid: React.FC<Props> = ({ clients, className, ...props }: Pr
     <section className={cx(styles['client-grid'], className)} {...props}>
       <ul className={styles.clients_list}>
         {clients
-          .filter(client => client.included)
-          .map(client => (
+          .filter((client) => client.included)
+          .map((client) => (
             <li
               key={client.name}
-              className={cx(styles.client, activeClient?.name === client.name && styles.active)}
+              className={cx(
+                styles.client,
+                activeClient?.name === client.name && styles.active
+              )}
               onClick={() => handleDialogOpen(client)}
-              onKeyUp={e => e.key === 'Enter' && handleDialogOpen(client)}
+              onKeyUp={(e) => e.key === 'Enter' && handleDialogOpen(client)}
               tabIndex={0}
             >
               {/* Keep two identical instances */}
@@ -130,12 +137,15 @@ export const ClientGrid: React.FC<Props> = ({ clients, className, ...props }: Pr
         <button
           autoFocus
           onClick={handleDialogClose}
-          onKeyUp={e => e.key === 'Esc' && handleDialogClose()}
+          onKeyUp={(e) => e.key === 'Esc' && handleDialogClose()}
           className={styles.close}
         >
           Close
         </button>
-        <ClientDescription {...(activeClient as Client)} className={styles['client-overlay']} />
+        <ClientDescription
+          {...(activeClient as Client)}
+          className={styles['client-overlay']}
+        />
       </dialog>
     </section>
   );
