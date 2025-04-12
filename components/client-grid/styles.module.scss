@@ -14,14 +14,28 @@
 
 .client-grid li {
   position: relative;
+  z-index: 0;
   display: grid;
-  background-color: aliceblue;
-  color: col.$dark;
-  place-content: center;
   aspect-ratio: 1/1;
+  padding: 1rem;
   cursor: pointer;
-  border-radius: 10px;
-  padding: 0.5rem;
+}
+
+.logo {
+  border-radius: 40px;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+}
+
+.contentWrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  border-radius: 15px;
+  color: col.$dark;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
@@ -81,9 +95,48 @@
     green
   );
   opacity: 0.8;
+  filter: blur(20px);
 }
 
 .client-overlay {
   width: 100vw;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.glowBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 99%;
+  height: 99%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  border-radius: 40px;
+}
+
+/* Target the two instances for layered effect */
+.client {
+  /* First instance (top layer): Less blur, maybe slightly smaller */
+  .glowBorder:nth-of-type(1) {
+    filter: blur(3px); /* Less blur */
+    transform: scale(0.96); /* Optional: Slightly smaller */
+    z-index: 2; /* Ensure it's above the second */
+  }
+
+  /* Second instance (bottom layer): More blur (use base or override) */
+  .glowBorder:nth-of-type(2) {
+    filter: blur(15px); /* More blur */
+    z-index: 1; /* Below the first */
+  }
+}
+
+.client:hover {
+  .glowBorder:nth-of-type(1) {
+    opacity: 1;
+  }
+  .glowBorder:nth-of-type(2) {
+    opacity: 0.5;
+  }
 }

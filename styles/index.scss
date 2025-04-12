@@ -4,3 +4,12 @@
 @use 'globals';
 
 // Global application styles can be found in styles/_globals.scss
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+
+  @include util.mq(bp.$medium) {
+    scroll-padding-top: 7rem;
+  }
+}

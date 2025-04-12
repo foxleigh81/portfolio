@@ -18,6 +18,60 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   clients: Client[];
 }
 
+/* == Local GlowBorder Component (Reverted to simple version) == */
+const GlowBorder: React.FC<{ className?: string }> = ({ className }) => {
+  return (
+    <svg
+      className={className} // Apply passed className
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient
+          id="rainbowGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0%" stopColor="hsl(0, 100%, 50%)" />
+          <stop offset="16%" stopColor="hsl(60, 100%, 50%)" />
+          <stop offset="33%" stopColor="hsl(120, 100%, 50%)" />
+          <stop offset="50%" stopColor="hsl(180, 100%, 50%)" />
+          <stop offset="66%" stopColor="hsl(240, 100%, 50%)" />
+          <stop offset="83%" stopColor="hsl(300, 100%, 50%)" />
+          <stop offset="100%" stopColor="hsl(360, 100%, 50%)" />
+          <animateTransform
+            attributeName="gradientTransform"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur="6s"
+            repeatCount="indefinite"
+          />
+        </linearGradient>
+        <filter id="blurMe">
+          <feGaussianBlur stdDeviation="2" />
+        </filter>
+      </defs>
+      <rect
+        x="2.5"
+        y="2.5"
+        width="95"
+        height="95"
+        rx="17.5"
+        fill="none"
+        stroke="url(#rainbowGradient)"
+        strokeWidth="10"
+        filter="url(#blurMe)"
+      />
+    </svg>
+  );
+};
+/* == End Local GlowBorder Component == */
+
 /* Import Stylesheet */
 import styles from './styles.module.scss';
 
@@ -60,15 +114,21 @@ export const ClientGrid: React.FC<Props> = ({
               onKeyUp={(e) => e.key === 'Enter' && handleDialogOpen(client)}
               tabIndex={0}
             >
-              {client.logo && (
-                <Image
-                  className={styles.logo}
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  fill
-                />
-              )}
-              {client.name}
+              {/* Keep two identical instances */}
+              <GlowBorder className={styles.glowBorder} />
+              <GlowBorder className={styles.glowBorder} />
+              <div className={styles.contentWrapper}>
+                {client.logo ? (
+                  <Image
+                    className={styles.logo}
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    fill
+                  />
+                ) : (
+                  client.name
+                )}
+              </div>
             </li>
           ))}
       </ul>
