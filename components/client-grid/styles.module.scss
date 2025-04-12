@@ -107,9 +107,30 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
-  filter: blur(10px);
+  border-radius: 40px;
 }
 
-.client:hover .glowBorder {
-  opacity: 1;
+/* Target the two instances for layered effect */
+.client {
+  /* First instance (top layer): Less blur, maybe slightly smaller */
+  .glowBorder:nth-of-type(1) {
+    filter: blur(3px); /* Less blur */
+    transform: scale(0.96); /* Optional: Slightly smaller */
+    z-index: 2; /* Ensure it's above the second */
+  }
+
+  /* Second instance (bottom layer): More blur (use base or override) */
+  .glowBorder:nth-of-type(2) {
+    filter: blur(15px); /* More blur */
+    z-index: 1; /* Below the first */
+  }
+}
+
+.client:hover {
+  .glowBorder:nth-of-type(1) {
+    opacity: 1;
+  }
+  .glowBorder:nth-of-type(2) {
+    opacity: 0.5;
+  }
 }

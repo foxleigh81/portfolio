@@ -18,6 +18,60 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   clients: Client[];
 }
 
+/* == Local GlowBorder Component (Reverted to simple version) == */
+const GlowBorder: React.FC<{ className?: string }> = ({ className }) => {
+  return (
+    <svg
+      className={className} // Apply passed className
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient
+          id="rainbowGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0%" stopColor="hsl(0, 100%, 50%)" />
+          <stop offset="16%" stopColor="hsl(60, 100%, 50%)" />
+          <stop offset="33%" stopColor="hsl(120, 100%, 50%)" />
+          <stop offset="50%" stopColor="hsl(180, 100%, 50%)" />
+          <stop offset="66%" stopColor="hsl(240, 100%, 50%)" />
+          <stop offset="83%" stopColor="hsl(300, 100%, 50%)" />
+          <stop offset="100%" stopColor="hsl(360, 100%, 50%)" />
+          <animateTransform
+            attributeName="gradientTransform"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur="6s"
+            repeatCount="indefinite"
+          />
+        </linearGradient>
+        <filter id="blurMe">
+          <feGaussianBlur stdDeviation="2" />
+        </filter>
+      </defs>
+      <rect
+        x="2.5"
+        y="2.5"
+        width="95"
+        height="95"
+        rx="17.5"
+        fill="none"
+        stroke="url(#rainbowGradient)"
+        strokeWidth="10"
+        filter="url(#blurMe)"
+      />
+    </svg>
+  );
+};
+/* == End Local GlowBorder Component == */
+
 /* Import Stylesheet */
 import styles from './styles.module.scss';
 
@@ -53,58 +107,9 @@ export const ClientGrid: React.FC<Props> = ({ clients, className, ...props }: Pr
               onKeyUp={e => e.key === 'Enter' && handleDialogOpen(client)}
               tabIndex={0}
             >
-              {/* SVG for hover glow border */}
-              <svg
-                className={styles.glowBorder}
-                viewBox="0 0 100 100" // Use a viewBox for scalable coordinates
-                preserveAspectRatio="none" // Allow stretching
-              >
-                <defs>
-                  {/* Define the rainbow gradient */}
-                  <linearGradient
-                    id="rainbowGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop offset="0%" stopColor="hsl(0, 100%, 50%)" />
-                    <stop offset="16%" stopColor="hsl(60, 100%, 50%)" />
-                    <stop offset="33%" stopColor="hsl(120, 100%, 50%)" />
-                    <stop offset="50%" stopColor="hsl(180, 100%, 50%)" />
-                    <stop offset="66%" stopColor="hsl(240, 100%, 50%)" />
-                    <stop offset="83%" stopColor="hsl(300, 100%, 50%)" />
-                    <stop offset="100%" stopColor="hsl(360, 100%, 50%)" />
-                    {/* Add SMIL animation to rotate the gradient */}
-                    <animateTransform
-                      attributeName="gradientTransform"
-                      type="rotate"
-                      from="0 50 50" // Rotate from 0 degrees around center (50,50)
-                      to="360 50 50" // Rotate to 360 degrees around center
-                      dur="4s" // Match previous CSS duration
-                      repeatCount="indefinite"
-                    />
-                  </linearGradient>
-                  {/* Define the blur filter */}
-                  <filter id="blurMe">
-                    <feGaussianBlur stdDeviation="3" />
-                    {/* Adjust deviation for more/less blur */}
-                  </filter>
-                </defs>
-                {/* Rounded rectangle using the gradient stroke AND blur */}
-                <rect
-                  x="2.5" // Position inset by half stroke width
-                  y="2.5"
-                  width="95" // Size adjusted for stroke width
-                  height="95"
-                  rx="17.5" // Align stroke center (li 20 - stroke 5/2)
-                  fill="none"
-                  stroke="url(#rainbowGradient)"
-                  strokeWidth="5" // Match desired border thickness
-                  filter="url(#blurMe)" // Apply the blur filter
-                />
-              </svg>
+              {/* Keep two identical instances */}
+              <GlowBorder className={styles.glowBorder} />
+              <GlowBorder className={styles.glowBorder} />
               <div className={styles.contentWrapper}>
                 {client.logo ? (
                   <Image
