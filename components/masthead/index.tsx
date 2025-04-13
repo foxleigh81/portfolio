@@ -7,7 +7,6 @@ import { variants as miniMeVariants } from '../mini-me';
 import styles from './styles.module.scss';
 
 /* Import helpers */
-import salutation from './helpers/salutation';
 
 /* Import Components */
 import { MiniMe } from '../mini-me';
@@ -22,40 +21,27 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
    */
   miniMeVariant?: (typeof miniMeVariants)[number];
   /**
-   * The hour of day in 24 hour format. Used to force a specific time setting
+   * The date I will be available from
    */
-  hour?: number;
+  date?: string;
   /**
    * My current work status
    */
   availability?: (typeof statuses)[number];
-  /**
-   * The date I will be available from
-   */
-  date?: string;
 }
 /**
  * The Masthead component is used to display the top section of the page
  */
 export const Masthead: React.FC<Props> = ({
   miniMeVariant = 'available',
-  hour,
-  availability = 'available-soon',
   date = '2025-05-18',
+  availability = 'available-soon',
   className,
   ...props
 }: Props) => {
-  const { lightLevel } = salutation(hour || undefined);
   return (
-    <div
-      {...props}
-      className={cx(styles['masthead'], styles[lightLevel], className)}
-    >
-      <Availability
-        className={styles.status}
-        status={availability}
-        date={date}
-      />
+    <div {...props} className={cx(styles['masthead'], className)}>
+      <Availability className={styles.status} status={availability} date={date} />
       <div className={styles.foreground}>
         <NavBar />
         <div className={styles['content']}>
