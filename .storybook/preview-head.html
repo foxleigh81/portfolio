@@ -2,6 +2,11 @@
   /* As this is a pure CSS file just for storybook display, a few style lint rules have been disabled here */
   /* stylelint-disable property-no-vendor-prefix, value-no-vendor-prefix, declaration-colon-newline-after, value-list-comma-newline-after */
 
+  /* Apply base font using the CSS variable */
+  body, .sb-show-main, #storybook-root {
+    font-family: var(--font-work-sans), sans-serif;
+  }
+
   .sb-show-main {
     background-color: hsl(0, 0%, 100%);
   }

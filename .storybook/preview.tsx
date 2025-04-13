@@ -27,9 +27,9 @@ import Version from './doc-blocks/version';
 import { ThemeProvider } from 'next-themes';
 
 import type { Decorator, Args } from '@storybook/react';
+import { Work_Sans } from 'next/font/google';
 
 import 'styles/index.scss';
-import '@fontsource/work-sans';
 import React from 'react';
 
 /*
@@ -42,6 +42,14 @@ initialize({
   onUnhandledRequest: 'bypass', // Pass through unhandled requests by default
 });
 
+// Configure the font for Storybook
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-work-sans',
+  weight: ['400', '700']
+});
+
 export const withTheme: Decorator<Args> = (Story, context) => {
   // Get values from story parameter first, else fallback to globals
   const theme = context.parameters.theme || context.globals.theme;
@@ -50,7 +58,7 @@ export const withTheme: Decorator<Args> = (Story, context) => {
   const noThemesInDocs = context.parameters.noThemesInDocs || false;
   if (context.viewMode === 'docs' && !noThemesInDocs) {
     return (
-      <div className={`preview-layout preview-layout--${previewLayout}`}>
+      <div className={`preview-layout preview-layout--${previewLayout} ${workSans.variable} ${workSans.className}`}>
         <ThemeProvider forcedTheme="dark" enableSystem={false}>
           <ThemeBlock theme="dark" docsMode overflow={overflowOptions}>
             <Story />
@@ -66,7 +74,7 @@ export const withTheme: Decorator<Args> = (Story, context) => {
   }
 
   return (
-    <ThemeBlock theme={theme} overflow={overflowOptions} reloadOnChange>
+    <ThemeBlock theme={theme} overflow={overflowOptions} reloadOnChange className={`${workSans.variable} ${workSans.className}`}>
       <ThemeProvider forcedTheme={theme} enableSystem={false}>
         <Story />
       </ThemeProvider>
