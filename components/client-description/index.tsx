@@ -35,28 +35,27 @@ export const ClientDescription: React.FC<Props> = ({
   description,
   role,
   logo,
-  className
+  className,
 }: Props) => {
   return (
     <section className={cx(styles['client-description'], className)}>
-      {logo && (
-        <div className={styles.logo}>
-          <Image src={logo} alt={`${name} logo`} fill />
+      <div className={styles.container}>
+        {logo && (
+          <div className={styles.logo}>
+            <Image src={logo} alt={`${name} logo`} fill />
+          </div>
+        )}
+        <div className={styles.content}>
+          <h2 className={styles.name}>{name}</h2>
+          <div className={styles.meta}>
+            <span className={styles.role}>{role}</span>
+            <span className={styles.date}>
+              {date_started && format(new Date(date_started), 'MMM yyyy')} -{' '}
+              {date_ended ? format(new Date(date_ended), 'MMM yyyy') : 'Present'}
+            </span>
+          </div>
+          <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
         </div>
-      )}
-      <div className={styles.content}>
-        <h2 className={styles.name}>{name}</h2>
-        <div className={styles.meta}>
-          <span className={styles.role}>{role}</span>
-          <span className={styles.date}>
-            {date_started && format(new Date(date_started), 'MMM yyyy')} -{' '}
-            {date_ended ? format(new Date(date_ended), 'MMM yyyy') : 'Present'}
-          </span>
-        </div>
-        <p
-          className={styles.description}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
       </div>
     </section>
   );

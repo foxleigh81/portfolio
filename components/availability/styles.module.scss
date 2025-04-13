@@ -13,6 +13,7 @@
   grid-template-rows: max-content auto;
   gap: spacing(1);
   text-align: center;
+  padding: 0 padding(5);
 
   @include util.mq(bp.$medium) {
     text-align: left;
@@ -21,6 +22,7 @@
     gap: spacing(3);
     align-items: center;
     width: 800px;
+    padding: 0;
   }
 
   p {
@@ -34,10 +36,7 @@
 .button {
   justify-self: center;
 
-  @include util.button(
-    color.adjust(col.$success, $lightness: -10%),
-    col.$light
-  );
+  @include util.button(color.adjust(col.$success, $lightness: -10%), col.$light);
 
   @include util.mq(bp.$medium) {
     justify-self: end !important;
@@ -47,16 +46,32 @@
 
 .status-available {
   background-color: #0f7f36;
+
+  .button {
+    @include util.button(color.adjust(col.$success, $lightness: -10%), col.$light);
+  }
 }
 
 .status-unavailable {
   background-color: #bd2e2e;
+
+  .button {
+    @include util.button(color.adjust(col.$danger, $lightness: -20%), col.$light);
+  }
 }
 
 .status-available-soon {
   background-color: #5b6f00;
+
+  .button {
+    @include util.button(color.adjust(#5b6f00, $lightness: -10%), col.$light);
+  }
 }
 
 .status-freelance {
   background-color: #2e71bd;
+
+  .button {
+    @include util.button(color.adjust(col.$primary, $lightness: -10%), col.$light);
+  }
 }

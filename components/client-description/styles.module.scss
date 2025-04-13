@@ -1,13 +1,19 @@
 .client-description {
+  display: grid;
+  place-items: center;
+  padding: padding(2);
+  border-top: 1px solid black;
+  border-bottom: 1px solid #000000;
+  background-color: white;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   gap: spacing(2);
   justify-content: center;
   align-items: center;
-  padding: padding(2);
-  border-top: 1px solid black;
-  border-bottom: 1px solid #000000;
-  background-color: white;
+  max-width: 800px;
 
   @include util.mq(660px) {
     flex-direction: row;
@@ -15,7 +21,7 @@
 }
 
 .content {
-  width: 60vw;
+  width: fit-content;
 }
 
 .logo {
