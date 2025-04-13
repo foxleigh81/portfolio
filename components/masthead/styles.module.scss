@@ -4,14 +4,7 @@
   grid-template-rows: min-content max-content;
   height: 450px;
   overflow-y: hidden;
-  background: linear-gradient(
-    253.86deg,
-    #4e03ad 0.54%,
-    #420293 48.6%,
-    #2b0063 74.61%,
-    rgba(78, 3, 173, 0.00520833) 74.62%,
-    #2f006a 74.62%
-  );
+  background: linear-gradient(253.86deg, #4e03ad, #420293, #2b0063, #2f006a);
 
   @include util.mq(bp.$medium) {
     grid-template-rows: 50px max-content;
