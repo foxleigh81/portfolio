@@ -14,28 +14,17 @@ const cx = classnames.bind(styles);
 /**
  * The Testimonials component is used to display the main 'Testimonials' section of my portfolio
  */
-export const Testimonials: React.FC<Props> = ({
-  className,
-  ...props
-}: Props) => {
+export const Testimonials: React.FC<Props> = ({ className, ...props }: Props) => {
   return (
-    <Block
-      name="testimonials"
-      className={cx(styles['testimonials'], className)}
-      {...props}
-    >
+    <Block name="testimonials" className={cx(styles['testimonials'], className)} {...props}>
       <div className={styles.content}>
         <div className={styles.top}>
           <h2>I seem to be liked</h2>
 
           <p>
-            I&apos;ve had some great feedback from clients over the years. Here
-            is a small selection of some of my favourites, you can also see a
-            more complete list on my{' '}
-            <a href="https://www.linkedin.com/in/alexfoxleigh/">
-              LinkedIn page
-            </a>
-            .
+            I&apos;ve had some great feedback from clients over the years. Here is a small selection
+            of some of my favourites, you can also see a more complete list on my{' '}
+            <a href="https://www.linkedin.com/in/alexfoxleigh/">LinkedIn page</a>.
           </p>
         </div>
 
@@ -55,7 +44,10 @@ export const Testimonials: React.FC<Props> = ({
                   </g>
                 </g>
               </svg>
-              <div className={styles.quote}>{testimonial.quote}</div>
+              <div
+                className={styles.quote}
+                dangerouslySetInnerHTML={{ __html: testimonial.quote }}
+              />
               <div className={styles.author}>
                 <Image
                   className={styles.photo}

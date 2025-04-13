@@ -40,22 +40,15 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 export const Masthead: React.FC<Props> = ({
   miniMeVariant = 'available',
   hour,
-  availability = 'available',
-  date,
+  availability = 'available-soon',
+  date = '2025-05-18',
   className,
   ...props
 }: Props) => {
   const { lightLevel } = salutation(hour || undefined);
   return (
-    <div
-      {...props}
-      className={cx(styles['masthead'], styles[lightLevel], className)}
-    >
-      <Availability
-        className={styles.status}
-        status={availability}
-        date={date}
-      />
+    <div {...props} className={cx(styles['masthead'], styles[lightLevel], className)}>
+      <Availability className={styles.status} status={availability} date={date} />
       <div className={styles.foreground}>
         <NavBar />
         <div className={styles['content']}>
@@ -65,7 +58,7 @@ export const Masthead: React.FC<Props> = ({
               <br />
               Foxleigh
             </h1>
-            <h2>Professional web-dude since 1998</h2>
+            <h2>Lead Frontend Engineer / Tech Lead</h2>
           </div>
           <MiniMe variant={miniMeVariant} className={styles['mini-me']} />
         </div>
