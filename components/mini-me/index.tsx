@@ -9,7 +9,8 @@ export const variants = [
   'skills',
   'phone',
   'smile',
-  'beach'
+  'beach',
+  'aagh'
 ] as const;
 
 /* Types */
@@ -28,7 +29,7 @@ import Blushing from './images/blushing.svg';
 import Skills from './images/skills.svg';
 import Smile from './images/smile.svg';
 import Beach from './images/beach.svg';
-
+import Aagh from './images/aagh.svg';
 /* import styles */
 import styles from './styles.module.scss';
 
@@ -85,6 +86,15 @@ export const MiniMe: React.FC<Props> = ({
           priority
           src={Beach}
           alt="A cartoon of me, in a swimsuit with an inflatable duck"
+        />
+      );
+    case 'aagh':
+      return (
+        <Image
+          className={cx(styles['mini-me'], className)}
+          priority
+          src={Aagh}
+          alt="A cartoon of me, looking shocked"
         />
       );
     case 'smile':
