@@ -5,49 +5,49 @@ const skills = [
       {
         name: 'Communication',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Mentoring',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Conflict resolution',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Problem solving',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Critical thinking',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Leadership',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Creativity',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Stragegic planning',
         background: '#333333',
-        foreground: '#ffffff',
+        foreground: '#ffffff'
       },
       {
         name: 'Stakeholder Management',
         background: '#333333',
-        foreground: '#ffffff',
-      },
-    ],
+        foreground: '#ffffff'
+      }
+    ]
   },
   {
     title: 'Languages',
@@ -56,39 +56,39 @@ const skills = [
         name: 'TypeScript',
         background: '#3178C6',
         foreground: '#ffffff',
-        slug: 'typescript',
+        slug: 'typescript'
       },
       {
         name: 'JavaScript',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'javascript',
+        slug: 'javascript'
       },
       {
         name: 'Node.js',
         background: '#339933',
         foreground: '#ffffff',
-        slug: 'nodedotjs',
+        slug: 'nodedotjs'
       },
       {
         name: 'Python',
         background: '#3776AB',
         foreground: '#ffffff',
-        slug: 'python',
+        slug: 'python'
       },
       {
         name: 'Bash',
         background: '#4EAA25',
         foreground: '#ffffff',
-        slug: 'gnubash',
+        slug: 'gnubash'
       },
       {
         name: 'PHP',
         background: '#777BB4',
         foreground: '#ffffff',
-        slug: 'php',
-      },
-    ],
+        slug: 'php'
+      }
+    ]
   },
   {
     title: 'Front end development',
@@ -97,75 +97,75 @@ const skills = [
         name: 'HTML5',
         background: '#E34F26',
         foreground: '#ffffff',
-        slug: 'html5',
+        slug: 'html5'
       },
       {
         name: 'CSS3',
         background: '#1572B6',
         foreground: '#ffffff',
-        slug: 'css3',
+        slug: 'css3'
       },
       {
         name: 'SASS',
         background: '#CC6699',
         foreground: '#ffffff',
-        slug: 'sass',
+        slug: 'sass'
       },
       {
         name: 'Next.js',
         background: '#000000',
         foreground: '#ffffff',
-        slug: 'nextdotjs',
+        slug: 'nextdotjs'
       },
       {
         name: 'React.js',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'react',
+        slug: 'react'
       },
       {
         name: 'Vue.js',
         background: '#4FC08D',
         foreground: '#333333',
-        slug: 'vuedotjs',
+        slug: 'vuedotjs'
       },
       {
         name: 'Tailwind CSS',
         background: '#06B6D4',
         foreground: '#fff',
-        slug: 'tailwindcss',
+        slug: 'tailwindcss'
       },
       {
         name: 'Material UI',
         background: '#007fff',
         foreground: '#ffffff',
-        slug: 'mui',
+        slug: 'mui'
       },
       {
         name: 'Storybook',
         background: '#FF4785',
         foreground: '#ffffff',
-        slug: 'storybook',
+        slug: 'storybook'
       },
       {
         name: 'Prettier',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'prettier',
+        slug: 'prettier'
       },
       {
         name: 'Jest',
         background: '#C21325',
         foreground: '#ffffff',
-        slug: 'jest',
+        slug: 'jest'
       },
       {
         name: 'Testing Library',
         background: '#E33332',
         foreground: '#ffffff',
-        slug: 'testinglibrary',
-      },
-    ],
+        slug: 'testinglibrary'
+      }
+    ]
   },
   {
     title: 'Backend / DB development',
@@ -174,63 +174,63 @@ const skills = [
         name: 'Node.js',
         background: '#339933',
         foreground: '#ffffff',
-        slug: 'nodedotjs',
+        slug: 'nodedotjs'
       },
       {
         name: 'Python',
         background: '#3776AB',
         foreground: '#ffffff',
-        slug: 'python',
+        slug: 'python'
       },
       {
         name: 'Node-RED',
         background: '#8F0000',
         foreground: '#ffffff',
-        slug: 'nodered',
+        slug: 'nodered'
       },
       {
         name: 'MongoDB',
         background: '#47A248',
         foreground: '#ffffff',
-        slug: 'mongodb',
+        slug: 'mongodb'
       },
       {
         name: 'PostgreSQL',
         background: '#4169E1',
         foreground: '#ffffff',
-        slug: 'postgresql',
+        slug: 'postgresql'
       },
       {
         name: 'MySQL',
         background: '#4479A1',
         foreground: '#ffffff',
-        slug: 'mysql',
+        slug: 'mysql'
       },
       {
         name: 'Firebase',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'firebase',
+        slug: 'firebase'
       },
       {
         name: 'Gatsby',
         background: '#663399',
         foreground: '#ffffff',
-        slug: 'gatsby',
+        slug: 'gatsby'
       },
       {
         name: 'Sanity',
         background: '#F03E2F',
         foreground: '#ffffff',
-        slug: 'sanity',
+        slug: 'sanity'
       },
       {
         name: 'GraphQL',
         background: '#E10098',
         foreground: '#ffffff',
-        slug: 'graphql',
-      },
-    ],
+        slug: 'graphql'
+      }
+    ]
   },
   {
     title: 'DevOps / Hosting',
@@ -239,117 +239,117 @@ const skills = [
         name: 'GitHub',
         background: '#181717',
         foreground: '#ffffff',
-        slug: 'github',
+        slug: 'github'
       },
       {
         name: 'GitLab',
         background: '#555555',
         foreground: '#ffffff',
-        slug: 'gitlab',
+        slug: 'gitlab'
       },
       {
         name: 'Bitbucket',
         background: '#0052CC',
         foreground: '#ffffff',
-        slug: 'bitbucket',
+        slug: 'bitbucket'
       },
       {
         name: 'AWS',
         background: '#232F3E',
         foreground: '#ffffff',
-        slug: 'amazonwebservices',
+        slug: 'amazonwebservices'
       },
       {
         name: 'Google Cloud',
         background: '#4285F4',
         foreground: '#ffffff',
-        slug: 'googlecloud',
+        slug: 'googlecloud'
       },
       {
         name: 'Vercel',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'vercel',
+        slug: 'vercel'
       },
       {
         name: 'Netlify',
         background: '#00C7B7',
         foreground: '#333333',
-        slug: 'netlify',
+        slug: 'netlify'
       },
       {
         name: 'Heroku',
         background: '#430098',
         foreground: '#ffffff',
-        slug: 'heroku',
+        slug: 'heroku'
       },
       {
         name: 'NGINX',
         background: '#009639',
         foreground: '#ffffff',
-        slug: 'nginx',
+        slug: 'nginx'
       },
       {
         name: 'Apache',
         background: '#D22128',
         foreground: '#ffffff',
-        slug: 'apache',
+        slug: 'apache'
       },
       {
         name: 'Ubuntu',
         background: '#E95420',
         foreground: '#ffffff',
-        slug: 'ubuntu',
+        slug: 'ubuntu'
       },
       {
         name: 'Debian',
         background: '#A81D33',
         foreground: '#ffffff',
-        slug: 'debian',
+        slug: 'debian'
       },
       {
         name: 'NPM',
         background: '#CB3837',
         foreground: '#ffffff',
-        slug: 'npm',
+        slug: 'npm'
       },
       {
         name: 'Yarn',
         background: '#2188B6',
         foreground: '#ffffff',
-        slug: 'yarn',
+        slug: 'yarn'
       },
       {
         name: 'Docker',
         background: '#2496ED',
         foreground: '#ffffff',
-        slug: 'docker',
+        slug: 'docker'
       },
       {
         name: 'Kubernetes',
         background: '#326CE5',
         foreground: '#ffffff',
-        slug: 'kubernetes',
+        slug: 'kubernetes'
       },
       {
         name: 'Unraid',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'unraid',
+        slug: 'unraid'
       },
       {
         name: 'CircleCI',
         background: '#343434',
         foreground: '#ffffff',
-        slug: 'circleci',
+        slug: 'circleci'
       },
       {
         name: 'TravisCI',
         background: '#3EAAAF',
         foreground: '#fff',
-        slug: 'travisci',
-      },
-    ],
+        slug: 'travisci'
+      }
+    ]
   },
   {
     title: 'Smarthome / Automation',
@@ -358,33 +358,33 @@ const skills = [
         name: 'Home Assistant',
         background: '#41BDF5',
         foreground: '#fff',
-        slug: 'homeassistant',
+        slug: 'homeassistant'
       },
       {
         name: 'Node-RED',
         background: '#8F0000',
         foreground: '#ffffff',
-        slug: 'nodered',
+        slug: 'nodered'
       },
       {
         name: 'MQTT',
         background: '#660066',
         foreground: '#ffffff',
-        slug: 'mqtt',
+        slug: 'mqtt'
       },
       {
         name: 'Arduino',
         background: '#00979D',
         foreground: '#ffffff',
-        slug: 'arduino',
+        slug: 'arduino'
       },
       {
         name: 'Raspberry Pi',
         background: '#A22846',
         foreground: '#ffffff',
-        slug: 'raspberrypi',
-      },
-    ],
+        slug: 'raspberrypi'
+      }
+    ]
   },
   {
     title: 'Design / Creative',
@@ -392,39 +392,39 @@ const skills = [
       {
         name: 'Adobe Photoshop',
         background: '#31A8FF',
-        foreground: '#fff',
+        foreground: '#fff'
       },
       {
         name: 'Adobe Illustrator',
         background: '#FF9A00',
-        foreground: '#333333',
+        foreground: '#333333'
       },
       {
         name: 'Figma',
         background: '#F24E2E',
         foreground: '#ffffff',
-        slug: 'figma',
+        slug: 'figma'
       },
       {
         name: 'Sketch',
         background: '#333333',
         foreground: '#ffffff',
-        slug: 'sketch',
+        slug: 'sketch'
       },
       {
         name: 'SketchUp',
         background: '#005F9E',
         foreground: '#ffffff',
-        slug: 'sketchup',
+        slug: 'sketchup'
       },
       {
         name: 'Blender',
         background: '#F5792A',
         foreground: '#ffffff',
-        slug: 'blender',
-      },
-    ],
-  },
+        slug: 'blender'
+      }
+    ]
+  }
 ];
 
 export default skills;

@@ -35,7 +35,7 @@ export const ClientDescription: React.FC<Props> = ({
   description,
   role,
   logo,
-  className,
+  className
 }: Props) => {
   return (
     <section className={cx(styles['client-description'], className)}>
@@ -51,10 +51,15 @@ export const ClientDescription: React.FC<Props> = ({
             <span className={styles.role}>{role}</span>
             <span className={styles.date}>
               {date_started && format(new Date(date_started), 'MMM yyyy')} -{' '}
-              {date_ended ? format(new Date(date_ended), 'MMM yyyy') : 'Present'}
+              {date_ended
+                ? format(new Date(date_ended), 'MMM yyyy')
+                : 'Present'}
             </span>
           </div>
-          <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+          <div
+            className={styles.description}
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
       </div>
     </section>

@@ -36,7 +36,10 @@
 .button {
   justify-self: center;
 
-  @include util.button(color.adjust(col.$success, $lightness: -10%), col.$light);
+  @include util.button(
+    color.adjust(col.$success, $lightness: -10%),
+    col.$light
+  );
 
   @include util.mq(bp.$medium) {
     justify-self: end !important;
@@ -48,7 +51,10 @@
   background-color: #0f7f36;
 
   .button {
-    @include util.button(color.adjust(col.$success, $lightness: -10%), col.$light);
+    @include util.button(
+      color.adjust(col.$success, $lightness: -10%),
+      col.$light
+    );
   }
 }
 
@@ -56,7 +62,10 @@
   background-color: #bd2e2e;
 
   .button {
-    @include util.button(color.adjust(col.$danger, $lightness: -20%), col.$light);
+    @include util.button(
+      color.adjust(col.$danger, $lightness: -20%),
+      col.$light
+    );
   }
 }
 
@@ -72,6 +81,9 @@
   background-color: #2e71bd;
 
   .button {
-    @include util.button(color.adjust(col.$primary, $lightness: -10%), col.$light);
+    @include util.button(
+      color.adjust(col.$primary, $lightness: -10%),
+      col.$light
+    );
   }
 }

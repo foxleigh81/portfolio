@@ -3,7 +3,12 @@ import { format } from 'date-fns';
 import classnames from 'classnames';
 import Link from 'next/link';
 
-export const statuses = ['available', 'unavailable', 'available-soon', 'freelance'] as const;
+export const statuses = [
+  'available',
+  'unavailable',
+  'available-soon',
+  'freelance'
+] as const;
 
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -40,9 +45,19 @@ const returnStatus = (status: string, date?: string) => {
 };
 
 /* Render component */
-export const Availability: React.FC<Props> = ({ status = 'available', date, className }: Props) => {
+export const Availability: React.FC<Props> = ({
+  status = 'available',
+  date,
+  className
+}: Props) => {
   return (
-    <div className={cx(styles['availability'], styles[`status-${status}`], className)}>
+    <div
+      className={cx(
+        styles['availability'],
+        styles[`status-${status}`],
+        className
+      )}
+    >
       <div className={styles.content}>
         <p>{returnStatus(status, date)}</p>
         <Link href="#contact" className={styles['button']}>
