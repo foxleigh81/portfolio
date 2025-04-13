@@ -19,7 +19,7 @@
 body {
   background: col.$grey-200;
   color: col.$body-text;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--font-work-sans), sans-serif;
   font-size: type.$body-text-size;
 
   p:not(:last-child) {

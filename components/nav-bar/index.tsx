@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,53 +17,53 @@ const buttons = [
   {
     label: 'Download CV',
     url: 'https://www.dropbox.com/scl/fi/2inpdkwsncc4kkb3vkw06/alex-foxleigh-tech-lead.docx?rlkey=zwxk53c9nynx63kh8dv5omkxt&dl=0',
-    variant: 'primary'
+    variant: 'primary',
   },
   {
     label: 'Get in touch',
     url: '#contact',
-    variant: 'secondary'
-  }
+    variant: 'secondary',
+  },
 ] as const;
 
 const navLinks = [
   {
     label: 'Home',
-    url: '#home'
+    url: '#home',
   },
   {
     label: 'About',
-    url: '#about'
+    url: '#about',
   },
   {
     label: 'Skills',
-    url: '#skills'
+    url: '#skills',
   },
   {
     label: 'Clients',
-    url: '#clients'
+    url: '#clients',
   },
   {
     label: 'Testimonials',
-    url: '#testimonials'
+    url: '#testimonials',
   },
   {
     label: 'Blog',
-    url: 'https://www.foxleigh.me'
-  }
+    url: 'https://www.foxleigh.me',
+  },
 ];
 
 const socialLinks = [
   {
     label: 'GitHub',
     url: 'https://github.com/foxleigh81',
-    icon: GitHub
+    icon: GitHub,
   },
   {
     label: 'LinkedIn',
     url: 'https://www.linkedin.com/in/alexfoxleigh',
-    icon: LinkedIn
-  }
+    icon: LinkedIn,
+  },
 ];
 
 const MEDIUM_BREAKPOINT_PX = 768;
@@ -83,9 +85,7 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
   // Effect to check viewport size on mount and resize
   useEffect(() => {
     const checkViewport = () => {
-      setIsDesktop(
-        window.matchMedia(`(min-width: ${MEDIUM_BREAKPOINT_PX}px)`).matches
-      );
+      setIsDesktop(window.matchMedia(`(min-width: ${MEDIUM_BREAKPOINT_PX}px)`).matches);
     };
 
     checkViewport(); // Initial check
@@ -132,17 +132,10 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
     <>
       <div
         ref={navWrapperRef}
-        className={cx(
-          styles['nav-wrapper'],
-          { [styles['fixed']]: isFixed },
-          className
-        )}
+        className={cx(styles['nav-wrapper'], { [styles['fixed']]: isFixed }, className)}
       >
         <div
-          className={cx(
-            styles['burger'],
-            styles[`burger-${isMenuOpen ? 'open' : 'closed'}`]
-          )}
+          className={cx(styles['burger'], styles[`burger-${isMenuOpen ? 'open' : 'closed'}`])}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           title={`${isMenuOpen ? 'Close' : 'Open'} menu`}
         >
@@ -150,27 +143,18 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
           <div className={styles['burger-bar']} />
           <div className={styles['burger-bar']} />
         </div>
-        <nav
-          className={cx(
-            styles['nav-bar'],
-            styles[`menu-${isMenuOpen ? 'open' : 'closed'}`]
-          )}
-        >
+        <nav className={cx(styles['nav-bar'], styles[`menu-${isMenuOpen ? 'open' : 'closed'}`])}>
           <ul className={styles['nav-links']}>
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <li key={link.label}>
-                <a
-                  className={styles.link}
-                  href={link.url}
-                  onClick={() => setIsMenuOpen(false)}
-                >
+                <a className={styles.link} href={link.url} onClick={() => setIsMenuOpen(false)}>
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
           <ul className={styles['social-links']}>
-            {socialLinks.map((link) => (
+            {socialLinks.map(link => (
               <li key={link.label}>
                 <a
                   className={styles.link}
@@ -178,18 +162,13 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
                   title={link.label}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Image
-                    className={styles.icon}
-                    priority
-                    src={link.icon}
-                    alt={link.label}
-                  />
+                  <Image className={styles.icon} priority src={link.icon} alt={link.label} />
                 </a>
               </li>
             ))}
           </ul>
           <ul className={styles['button-links']}>
-            {buttons.map((button) => (
+            {buttons.map(button => (
               <li key={button.label}>
                 <Link
                   className={styles.button}
