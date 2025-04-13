@@ -1,12 +1,10 @@
-'use client';
-
 import Masthead from 'components/masthead';
 import About from 'partials/about';
 import Skills from 'partials/skills';
 import Clients from 'partials/clients';
 import Testimonials from 'partials/testimonials';
-import Contact from 'partials/contact';
 import Footer from 'partials/footer';
+import DynamicContactLoader from 'components/dynamic-contact-loader';
 
 export default function Home() {
   return (
@@ -16,7 +14,7 @@ export default function Home() {
       <Skills id="skills" />
       <Clients id="clients" />
       <Testimonials id="testimonials" />
-      <Contact id="contact" />
+      <DynamicContactLoader id="contact" />
       <Footer />
     </main>
   );

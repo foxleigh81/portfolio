@@ -42,7 +42,7 @@ export const ClientDescription: React.FC<Props> = ({
       <div className={styles.container}>
         {logo && (
           <div className={styles.logo}>
-            <Image src={logo} alt={`${name} logo`} fill />
+            <Image src={logo} alt={`${name} logo`} fill sizes="150px" />
           </div>
         )}
         <div className={styles.content}>

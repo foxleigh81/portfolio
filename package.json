@@ -18,7 +18,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@fontsource/work-sans": "^5.1.1",
     "@google-recaptcha/react": "^1.2.3",
     "@hookform/resolvers": "^3.10.0",
     "@preact/signals-react": "^2.2.0",

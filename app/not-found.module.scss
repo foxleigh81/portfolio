@@ -1,0 +1,36 @@
+@use 'sass:color'; // Import the modern color module
+
+.content {
+  padding: padding(3) padding(2); // Use spacing variables
+  max-width: 600px;
+  margin: spacing(3) auto; // Center block with spacing
+  text-align: center;
+
+  h1 {
+    // Use a suitable heading mixin if available, or define styles
+    font-size: 3rem; // Example size
+    margin-bottom: spacing(2);
+  }
+
+  p {
+    // Use body text mixin if available, or define styles
+    margin-bottom: spacing(2);
+    line-height: 1.6;
+  }
+
+  a {
+    // Basic button/link styling
+    display: inline-block;
+    padding: padding(1) padding(2);
+    background-color: col.$primary; // Use primary colour variable
+    color: col.$light; // Use light text colour variable
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: color.adjust(col.$primary, $lightness: -10%);
+      text-decoration: none;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import classnames from 'classnames';
@@ -124,6 +125,7 @@ export const ClientGrid: React.FC<Props> = ({
                     src={client.logo}
                     alt={`${client.name} logo`}
                     fill
+                    sizes="(min-width: 1024px) 240px, (min-width: 768px) 162px, 185px"
                   />
                 ) : (
                   client.name
