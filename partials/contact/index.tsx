@@ -1,13 +1,20 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { GoogleReCaptchaProvider, GoogleReCaptchaCheckbox } from '@google-recaptcha/react';
+import {
+  GoogleReCaptchaProvider,
+  GoogleReCaptchaCheckbox
+} from '@google-recaptcha/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import classnames from 'classnames';
 import Block from 'components/block';
-import { MdOutlineEmail, MdOutlineLocalPhone, MdOutlineCheckBox } from 'react-icons/md';
+import {
+  MdOutlineEmail,
+  MdOutlineLocalPhone,
+  MdOutlineCheckBox
+} from 'react-icons/md';
 import { PiLinkedinLogoBold } from 'react-icons/pi';
 import { LuBird } from 'react-icons/lu';
 import { FaGithub } from 'react-icons/fa';
@@ -40,19 +47,21 @@ const schema = yup.object().shape({
   email: yup.string().email('Please enter a valid email address'),
   contactNumber: yup.string().when('email', {
     is: (val: string | undefined) => !val,
-    then: schema =>
+    then: (schema) =>
       schema
         .required('Contact number is required when email is not provided')
         .matches(
           /(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/,
           'Please enter a valid UK phone number with no spaces'
         ),
-    otherwise: schema => schema.notRequired(),
+    otherwise: (schema) => schema.notRequired()
   }),
   message: yup
     .string()
-    .required("If you're contacting me, you should probably have something to say"),
-  noSale: yup.boolean().oneOf([true], "Sorry, I'm not buying."),
+    .required(
+      "If you're contacting me, you should probably have something to say"
+    ),
+  noSale: yup.boolean().oneOf([true], "Sorry, I'm not buying.")
 });
 
 const Required = () => <span className={styles.required}>*</span>;
@@ -67,9 +76,9 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<Inputs>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   useEffect(() => {
@@ -82,7 +91,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
         setCaptchaToken(null);
         setFormMessage({
           message: 'reCAPTCHA token has expired. Please try again.',
-          status: 'warning',
+          status: 'warning'
         });
       },
       2 * 60 * 1000
@@ -95,7 +104,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
     if (!captchaToken) {
       setFormMessage({
         message: 'Please complete the reCAPTCHA challenge',
-        status: 'error',
+        status: 'error'
       });
       return;
     }
@@ -104,12 +113,12 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       const response = await fetch('/api/form-handler', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           ...data,
-          recaptchaToken: captchaToken,
-        }),
+          recaptchaToken: captchaToken
+        })
       });
 
       if (!response.ok) {
@@ -120,30 +129,36 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
       console.log('Form submitted successfully:', result);
 
       setFormMessage({
-        message: 'Thanks for getting in touch! I will get back to you as soon as I can.',
-        status: 'success',
+        message:
+          'Thanks for getting in touch! I will get back to you as soon as I can.',
+        status: 'success'
       });
     } catch (error) {
       console.error('Error submitting form:', error);
 
       setFormMessage({
-        message: 'An error occurred while submitting the form. Please try again later.',
-        status: 'error',
+        message:
+          'An error occurred while submitting the form. Please try again later.',
+        status: 'error'
       });
     }
   };
 
   return (
-    <Block name="contact" className={cx(styles['contact'], className)} {...props}>
+    <Block
+      name="contact"
+      className={cx(styles['contact'], className)}
+      {...props}
+    >
       <div className={styles.content}>
         <h2>Get in touch!</h2>
 
         <div className={styles.container}>
           <div className={styles.content}>
             <p>
-              If you'd like to get in touch with me, please fill out the form and I'll get back to
-              you as soon as possible. Alternatively, you can contact me using one of the methods
-              below:
+              If you'd like to get in touch with me, please fill out the form
+              and I'll get back to you as soon as possible. Alternatively, you
+              can contact me using one of the methods below:
             </p>
 
             <ul className={styles['contact-list']}>
@@ -192,7 +207,10 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
               </li>
             </ul>
           </div>
-          <GoogleReCaptchaProvider type="v2-checkbox" siteKey={RECAPTCHA_SITE_KEY}>
+          <GoogleReCaptchaProvider
+            type="v2-checkbox"
+            siteKey={RECAPTCHA_SITE_KEY}
+          >
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
               <div className={styles['input-container']}>
                 <label htmlFor="name">
@@ -200,20 +218,30 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                   <Required />
                 </label>
                 <input type="text" id="name" {...register('name')} />
-                {errors.name && <div className={styles.error}>{errors.name.message}</div>}
+                {errors.name && (
+                  <div className={styles.error}>{errors.name.message}</div>
+                )}
               </div>
 
               <div className={styles['input-container']}>
                 <label htmlFor="email">Email</label>
                 <input type="text" id="email" {...register('email')} />
-                {errors.email && <div className={styles.error}>{errors.email.message}</div>}
+                {errors.email && (
+                  <div className={styles.error}>{errors.email.message}</div>
+                )}
               </div>
 
               <div className={styles['input-container']}>
                 <label htmlFor="contactNumber">Contact Number</label>
-                <input type="text" id="contactNumber" {...register('contactNumber')} />
+                <input
+                  type="text"
+                  id="contactNumber"
+                  {...register('contactNumber')}
+                />
                 {errors.contactNumber && (
-                  <div className={styles.error}>{errors.contactNumber.message}</div>
+                  <div className={styles.error}>
+                    {errors.contactNumber.message}
+                  </div>
                 )}
               </div>
 
@@ -223,7 +251,9 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                   <Required />
                 </label>
                 <textarea id="message" rows={10} {...register('message')} />
-                {errors.message && <div className={styles.error}>{errors.message.message}</div>}
+                {errors.message && (
+                  <div className={styles.error}>{errors.message.message}</div>
+                )}
               </div>
 
               <div className={styles['input-container--checkbox']}>
@@ -234,7 +264,9 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                     <Required />
                   </label>
                 </div>
-                {errors.noSale && <div className={styles.error}>{errors.noSale.message}</div>}
+                {errors.noSale && (
+                  <div className={styles.error}>{errors.noSale.message}</div>
+                )}
               </div>
 
               <div className={styles['input-container']}>
@@ -243,17 +275,27 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                     <MdOutlineCheckBox /> ReCaptcha complete
                   </p>
                 ) : (
-                  <GoogleReCaptchaCheckbox onChange={token => setCaptchaToken(token)} />
+                  <GoogleReCaptchaCheckbox
+                    onChange={(token) => setCaptchaToken(token)}
+                  />
                 )}
               </div>
 
               {formMessage?.status !== 'success' && (
-                <button className={cx('btn-primary', styles.button)} type="submit">
+                <button
+                  className={cx('btn-primary', styles.button)}
+                  type="submit"
+                >
                   Submit
                 </button>
               )}
               {formMessage && (
-                <div className={cx(styles.message, styles[`${formMessage.status}-status`])}>
+                <div
+                  className={cx(
+                    styles.message,
+                    styles[`${formMessage.status}-status`]
+                  )}
+                >
                   {formMessage.message}
                 </div>
               )}

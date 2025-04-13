@@ -41,7 +41,11 @@ export const Masthead: React.FC<Props> = ({
 }: Props) => {
   return (
     <div {...props} className={cx(styles['masthead'], className)}>
-      <Availability className={styles.status} status={availability} date={date} />
+      <Availability
+        className={styles.status}
+        status={availability}
+        date={date}
+      />
       <div className={styles.foreground}>
         <NavBar />
         <div className={styles['content']}>

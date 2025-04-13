@@ -8,15 +8,20 @@ const workSans = Work_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-work-sans', // Define CSS variable name
-  weight: ['400', '700'], // Specify desired weights
+  weight: ['400', '700'] // Specify desired weights
 });
 
 export const metadata: Metadata = {
   title: 'Alexander Foxleigh - Lead Software Engineer',
-  description: 'The personal website of Alexander Foxleigh, Lead Software Engineer',
+  description:
+    'The personal website of Alexander Foxleigh, Lead Software Engineer'
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={workSans.variable}>
