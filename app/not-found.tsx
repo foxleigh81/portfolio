@@ -10,7 +10,7 @@ export default function NotFound() {
 
       <div className={styles.content}>
         <h1>404 - Page Not Found</h1>
-        <p>How did you get in here?! You're not supposed to be here!</p>
+        <p>How did you get in here?! You&apos;re not supposed to be here!</p>
         <p>Stop messing around and go back home.</p>
         <Link href="/">Go back home</Link>
       </div>
