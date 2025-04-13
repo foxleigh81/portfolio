@@ -8,15 +8,21 @@
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  // Default: Mobile layout (implicitly stacked)
   gap: spacing(2);
-  justify-content: center;
-  align-items: center;
   max-width: 800px;
+  // Center content when stacked on mobile (optional, adjust as needed)
+  // If you want mobile logo left-aligned, remove justify-items
+  display: grid; // Use grid for simpler centering/alignment on mobile too
+  justify-items: center;
 
   @include util.mq(660px) {
-    flex-direction: row;
+    // Desktop/Tablet layout
+    display: grid; // Explicitly set display: grid
+    grid-template-columns: 150px 1fr; // 150px for logo, rest for content
+    align-items: center; // Vertically align items in the row
+    justify-items: start; // Reset mobile centering
+    gap: spacing(3); // Maybe increase gap slightly for desktop?
   }
 }
 
