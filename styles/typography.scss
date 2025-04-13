@@ -1,9 +1,6 @@
 @use 'spacing';
 @use 'breakpoints' as bp;
 @use 'utilities/responsive' as util;
-@use '@fontsource/work-sans/scss/mixins' as WorkSans;
-
-@include WorkSans.faces($weights: all, $styles: 'all', $family: 'Work Sans');
 
 $body-text-size: 1.4rem;
 

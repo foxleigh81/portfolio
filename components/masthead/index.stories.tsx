@@ -10,20 +10,11 @@ const meta: Meta<typeof Masthead> = {
   },
   args: {
     miniMeVariant: 'available',
-    hour: 12,
     date: '2027-12-02'
   },
   argTypes: {
     miniMeVariant: {
       options: miniMeVariants
-    },
-    hour: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 24,
-        step: 1
-      }
     }
   }
 };
