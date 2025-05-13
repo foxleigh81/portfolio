@@ -34,7 +34,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
  */
 export const Masthead: React.FC<Props> = ({
   miniMeVariant = 'available',
-  date = '2025-05-18',
+  date = '2025-06-15',
   availability = 'available-soon',
   className,
   ...props
