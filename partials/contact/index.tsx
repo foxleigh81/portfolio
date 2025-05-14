@@ -210,6 +210,11 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
           <GoogleReCaptchaProvider
             type="v2-checkbox"
             siteKey={RECAPTCHA_SITE_KEY}
+            scriptProps={{
+              async: true,
+              defer: true,
+              appendTo: 'body'
+            }}
           >
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
               <div className={styles['input-container']}>
