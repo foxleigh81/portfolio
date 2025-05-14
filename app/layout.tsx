@@ -1,14 +1,14 @@
-import 'styles/index.scss';
 import { Work_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
+
+import 'styles/index.scss';
 
 // Configure the font
 const workSans = Work_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-work-sans', // Define CSS variable name
-  weight: ['400', '700'] // Specify desired weights
+  variable: '--font-work-sans'
 });
 
 export const metadata: Metadata = {
