@@ -4,7 +4,9 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently yarn:dev:*",
+    "dev:next": "next dev",
+    "dev:studio": "sanity dev",
     "build": "next build",
     "start": "next start",
     "lint": "concurrently yarn:lint:*",
