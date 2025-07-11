@@ -27,7 +27,6 @@ export const Skills: React.FC<Props> = ({ className, ...props }: Props) => {
       <div className={styles.content}>
         <div className={styles.top}>
           <Image
-            priority
             className={styles.image}
             src={taken}
             loading='lazy'
