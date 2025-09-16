@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 const buttons = [
   {
     label: 'Download CV',
-    url: 'https://www.dropbox.com/scl/fi/2inpdkwsncc4kkb3vkw06/alex-foxleigh-tech-lead.docx?rlkey=zwxk53c9nynx63kh8dv5omkxt&dl=0',
+    url: 'https://www.dropbox.com/scl/fi/n63zuxs643tikspbcblx9/alex-foxleigh.pdf?rlkey=pxrxd40xj9942dv6dymxpavdw&st=qm1oclc8&dl=0',
     variant: 'primary'
   },
   {
