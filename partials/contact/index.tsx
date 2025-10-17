@@ -125,8 +125,6 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
         throw new Error('Failed to submit the form');
       }
 
-      const result = await response.json();
-
       setFormMessage({
         message:
           'Thanks for getting in touch! I will get back to you as soon as I can.',

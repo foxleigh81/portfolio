@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     }
 
     // Send email via Postmark
-    const response = await client.sendEmail({
+    await client.sendEmail({
       From: 'no-reply@alexfoxleigh.com', // Sender's email address
       To: 'alex@alexfoxleigh.com', // Receiver's email address
       Subject: `[Portfolio] New Form Submission from ${name}`,
