@@ -29,7 +29,7 @@ export const Skills: React.FC<Props> = ({ className, ...props }: Props) => {
           <Image
             className={styles.image}
             src={taken}
-            loading='lazy'
+            loading="lazy"
             alt="Liam Neeson speaking on the phone saying 'I will find you and I will help you build a top-tier web application'"
             sizes="(max-width: 660px) 575px, 370px"
           />

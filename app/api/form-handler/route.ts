@@ -43,7 +43,8 @@ export async function POST(req: Request) {
       // If ReCAPTCHA is configured on backend but token not provided
       return NextResponse.json({
         status: 'error',
-        message: 'Security verification required. Please complete the reCAPTCHA.'
+        message:
+          'Security verification required. Please complete the reCAPTCHA.'
       });
     }
 

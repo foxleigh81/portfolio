@@ -271,7 +271,11 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
 
                 <div className={styles['input-container--checkbox']}>
                   <div>
-                    <input type="checkbox" id="noSale" {...register('noSale')} />
+                    <input
+                      type="checkbox"
+                      id="noSale"
+                      {...register('noSale')}
+                    />
                     <label htmlFor="noSale">
                       I am not trying to sell you something
                       <Required />
