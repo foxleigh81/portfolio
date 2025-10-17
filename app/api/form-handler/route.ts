@@ -4,31 +4,46 @@ import { NextResponse } from 'next/server';
 import * as postmark from 'postmark';
 
 // Initialize Postmark client
-const client = new postmark.ServerClient(process.env.POSTMARK_SERVER_TOKEN!); // Your Postmark server token
+const POSTMARK_TOKEN = process.env.POSTMARK_SERVER_TOKEN;
+const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY;
+
+if (!POSTMARK_TOKEN) {
+  throw new Error('POSTMARK_SERVER_TOKEN is not configured');
+}
+
+const client = new postmark.ServerClient(POSTMARK_TOKEN);
 
 export async function POST(req: Request) {
   const { name, email, contactNumber, message, recaptchaToken } =
     await req.json();
 
   try {
-    // Verify reCAPTCHA token with Google
-    const recaptchaResponse = await fetch(
-      `https://www.google.com/recaptcha/api/siteverify`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          secret: process.env.RECAPTCHA_SECRET_KEY!, // Your reCAPTCHA secret key from Google
-          response: recaptchaToken
-        })
-      }
-    );
+    // Verify reCAPTCHA token if configured
+    if (recaptchaToken && RECAPTCHA_SECRET) {
+      const recaptchaResponse = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            secret: RECAPTCHA_SECRET,
+            response: recaptchaToken
+          })
+        }
+      );
 
-    const recaptchaResult = await recaptchaResponse.json();
-    if (!recaptchaResult.success) {
+      const recaptchaResult = await recaptchaResponse.json();
+      if (!recaptchaResult.success) {
+        return NextResponse.json({
+          status: 'error',
+          message: 'reCAPTCHA verification failed. Please try again.'
+        });
+      }
+    } else if (RECAPTCHA_SECRET && !recaptchaToken) {
+      // If ReCAPTCHA is configured on backend but token not provided
       return NextResponse.json({
         status: 'error',
-        message: 'reCAPTCHA verification failed. Please try again.'
+        message: 'Security verification required. Please complete the reCAPTCHA.'
       });
     }
 
@@ -49,13 +64,14 @@ export async function POST(req: Request) {
       MessageStream: 'outbound'
     });
 
-    console.log('Email sent successfully:', response);
     return NextResponse.json({
       status: 'success',
       message: 'Email sent successfully.'
     });
   } catch (error) {
-    console.error('Error sending email:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error sending email:', error);
+    }
     return NextResponse.json({
       status: 'error',
       message: 'Failed to send email.'

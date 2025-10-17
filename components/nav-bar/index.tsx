@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 
 import GitHub from './images/github.svg';
 import LinkedIn from './images/linkedin.svg';
+import YouTube from './images/youtube.svg';
 
 const cx = classNames.bind(styles);
 
@@ -63,6 +64,11 @@ const socialLinks = [
     label: 'LinkedIn',
     url: 'https://www.linkedin.com/in/alexfoxleigh',
     icon: LinkedIn
+  },
+  {
+    label: 'YouTube',
+    url: 'https://www.youtube.com/@foxyslab',
+    icon: YouTube
   }
 ];
 
@@ -140,19 +146,22 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
           className
         )}
       >
-        <div
+        <button
           className={cx(
             styles['burger'],
             styles[`burger-${isMenuOpen ? 'open' : 'closed'}`]
           )}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          title={`${isMenuOpen ? 'Close' : 'Open'} menu`}
+          aria-label={`${isMenuOpen ? 'Close' : 'Open'} menu`}
+          aria-expanded={isMenuOpen}
+          aria-controls="navigation-menu"
         >
           <div className={styles['burger-bar']} />
           <div className={styles['burger-bar']} />
           <div className={styles['burger-bar']} />
-        </div>
+        </button>
         <nav
+          id="navigation-menu"
           className={cx(
             styles['nav-bar'],
             styles[`menu-${isMenuOpen ? 'open' : 'closed'}`]
@@ -179,6 +188,8 @@ export const NavBar: React.FC<Props> = ({ className }: Props) => {
                   href={link.url}
                   title={link.label}
                   onClick={() => setIsMenuOpen(false)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Image
                     className={styles.icon}
