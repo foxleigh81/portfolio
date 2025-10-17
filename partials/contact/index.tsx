@@ -101,7 +101,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
   }, [captchaToken]);
 
   const onSubmit = async (data: Inputs) => {
-    if (!captchaToken) {
+    if (RECAPTCHA_SITE_KEY && !captchaToken) {
       setFormMessage({
         message: 'Please complete the reCAPTCHA challenge',
         status: 'error'
@@ -117,16 +117,13 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
         },
         body: JSON.stringify({
           ...data,
-          recaptchaToken: captchaToken
+          ...(captchaToken && { recaptchaToken: captchaToken })
         })
       });
 
       if (!response.ok) {
         throw new Error('Failed to submit the form');
       }
-
-      const result = await response.json();
-      console.log('Form submitted successfully:', result);
 
       setFormMessage({
         message:
@@ -185,7 +182,11 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                   <PiLinkedinLogoBold />
                   LinkedIn:
                 </span>
-                <a href="https://www.linkedin.com/in/alexfoxleigh">
+                <a
+                  href="https://www.linkedin.com/in/alexfoxleigh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>LinkedIn</span>
                 </a>
               </li>
@@ -194,7 +195,11 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                   <FaGithub />
                   GitHub:
                 </span>
-                <a href="https://github.com/foxleigh81">
+                <a
+                  href="https://github.com/foxleigh81"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>foxleigh81</span>
                 </a>
               </li>
@@ -207,15 +212,111 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
               </li>
             </ul>
           </div>
-          <GoogleReCaptchaProvider
-            type="v2-checkbox"
-            siteKey={RECAPTCHA_SITE_KEY}
-            scriptProps={{
-              async: true,
-              defer: true,
-              appendTo: 'body'
-            }}
-          >
+          {RECAPTCHA_SITE_KEY ? (
+            <GoogleReCaptchaProvider
+              type="v2-checkbox"
+              siteKey={RECAPTCHA_SITE_KEY}
+              scriptProps={{
+                async: true,
+                defer: true,
+                appendTo: 'body'
+              }}
+            >
+              <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles['input-container']}>
+                  <label htmlFor="name">
+                    Name
+                    <Required />
+                  </label>
+                  <input type="text" id="name" {...register('name')} />
+                  {errors.name && (
+                    <div className={styles.error}>{errors.name.message}</div>
+                  )}
+                </div>
+
+                <div className={styles['input-container']}>
+                  <label htmlFor="email">Email</label>
+                  <input type="text" id="email" {...register('email')} />
+                  {errors.email && (
+                    <div className={styles.error}>{errors.email.message}</div>
+                  )}
+                </div>
+
+                <div className={styles['input-container']}>
+                  <label htmlFor="contactNumber">Contact Number</label>
+                  <input
+                    type="text"
+                    id="contactNumber"
+                    {...register('contactNumber')}
+                  />
+                  {errors.contactNumber && (
+                    <div className={styles.error}>
+                      {errors.contactNumber.message}
+                    </div>
+                  )}
+                </div>
+
+                <div className={styles['input-container']}>
+                  <label htmlFor="message">
+                    Message
+                    <Required />
+                  </label>
+                  <textarea id="message" rows={10} {...register('message')} />
+                  {errors.message && (
+                    <div className={styles.error}>{errors.message.message}</div>
+                  )}
+                </div>
+
+                <div className={styles['input-container--checkbox']}>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="noSale"
+                      {...register('noSale')}
+                    />
+                    <label htmlFor="noSale">
+                      I am not trying to sell you something
+                      <Required />
+                    </label>
+                  </div>
+                  {errors.noSale && (
+                    <div className={styles.error}>{errors.noSale.message}</div>
+                  )}
+                </div>
+
+                <div className={styles['input-container']}>
+                  {captchaToken ? (
+                    <p className={styles['captcha-complete']}>
+                      <MdOutlineCheckBox /> ReCaptcha complete
+                    </p>
+                  ) : (
+                    <GoogleReCaptchaCheckbox
+                      onChange={(token) => setCaptchaToken(token)}
+                    />
+                  )}
+                </div>
+
+                {formMessage?.status !== 'success' && (
+                  <button
+                    className={cx('btn-primary', styles.button)}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                )}
+                {formMessage && (
+                  <div
+                    className={cx(
+                      styles.message,
+                      styles[`${formMessage.status}-status`]
+                    )}
+                  >
+                    {formMessage.message}
+                  </div>
+                )}
+              </form>
+            </GoogleReCaptchaProvider>
+          ) : (
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
               <div className={styles['input-container']}>
                 <label htmlFor="name">
@@ -274,18 +375,6 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                 )}
               </div>
 
-              <div className={styles['input-container']}>
-                {captchaToken ? (
-                  <p className={styles['captcha-complete']}>
-                    <MdOutlineCheckBox /> ReCaptcha complete
-                  </p>
-                ) : (
-                  <GoogleReCaptchaCheckbox
-                    onChange={(token) => setCaptchaToken(token)}
-                  />
-                )}
-              </div>
-
               {formMessage?.status !== 'success' && (
                 <button
                   className={cx('btn-primary', styles.button)}
@@ -305,7 +394,7 @@ export const Contact: React.FC<Props> = ({ className, ...props }: Props) => {
                 </div>
               )}
             </form>
-          </GoogleReCaptchaProvider>
+          )}
         </div>
       </div>
     </Block>
