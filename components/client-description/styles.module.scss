@@ -20,8 +20,7 @@
     // Desktop/Tablet layout
     display: grid; // Explicitly set display: grid
     grid-template-columns: 150px 1fr; // 150px for logo, rest for content
-    align-items: center; // Vertically align items in the row
-    justify-items: start; // Reset mobile centering
+    place-items: center start; // Vertically align items in the row // Reset mobile centering
     gap: spacing(3); // Maybe increase gap slightly for desktop?
   }
 }
