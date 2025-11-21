@@ -1,5 +1,6 @@
 import React from 'react';
-import cx from 'classnames'; 
+import cx from 'classnames';
+import Image from 'next/image';
 
 /* Import Stylesheet */
 import styles from './styles.module.scss';
@@ -21,7 +22,12 @@ export const FoxysLabBanner: React.FC<Props> = ({ className, ...props }) => {
     >
       <div className={styles.grid}>
         <div>
-          <img src="/images/logos/foxys-lab-logo.png" alt="Foxys Lab Logo" />
+          <Image
+            src="/images/logos/foxys-lab-logo.png"
+            alt="Foxys Lab Logo"
+            width={100}
+            height={100}
+          />
         </div>
         <div>
           I now have a YouTube channel about IoT, Networking and Smarthome tech!
