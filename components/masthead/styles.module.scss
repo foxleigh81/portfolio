@@ -7,7 +7,7 @@
   background: linear-gradient(253.86deg, #4e03ad, #420293, #2b0063, #2f006a);
 
   @include util.mq(bp.$medium) {
-    grid-template-rows: 50px max-content;
+    grid-template-rows: 70px max-content;
   }
 }
 

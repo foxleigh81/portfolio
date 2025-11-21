@@ -34,7 +34,7 @@ const returnStatus = (status: string, date?: string) => {
     case 'available':
       return "Good news! I'm currently available.";
     case 'unavailable':
-      return "Sorry, I'm currently unavailable.";
+      return "I'm currently in contract but am open to hearing about permanent opportunities.";
     case 'available-soon':
       return `I'll be available for a new role on ${prettyDate}.`;
     case 'freelance':
