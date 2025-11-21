@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './styles.module.scss';
 import Block from 'components/block';
-import FoxysLabBanner from 'components/foxys-lab-banner';
 
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {}
