@@ -15,7 +15,6 @@ const cx = classnames.bind(styles);
 export const About: React.FC<Props> = ({ className, ...props }: Props) => {
   return (
     <>
-      <FoxysLabBanner />
       <Block name="about" className={cx(styles['about'], className)} {...props}>
         <div className={styles.content}>
           <h2>About Me</h2>

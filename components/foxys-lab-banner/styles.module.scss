@@ -2,7 +2,7 @@
   background-color: #32002d;
   background-image: linear-gradient(10deg, #330039, #2a017e);
   color: col.$light;
-  font-size: type.$large-text-size;
+  font-size: type.$heading-small-size;
   font-weight: bold;
   display: flex;
   justify-content: space-around;
@@ -28,4 +28,7 @@
   gap: spacing(2);
   text-align: center;
   line-height: 1.5;
+  @include util.mq(bp.$medium) {
+    width: 800px;
+  }
 }
