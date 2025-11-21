@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 /**
- * The FoxysLabBanner component displays a black bar with white text
+ * The FoxysLabBanner component displays a banner with a purple gradient background and promotional text
  */
 export const FoxysLabBanner: React.FC<Props> = ({ className, ...props }) => {
   return (
