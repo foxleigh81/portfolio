@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './styles.module.scss';
 import Block from 'components/block';
+import FoxysLabBanner from 'components/foxys-lab-banner';
 
 /* Types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {}
@@ -13,9 +14,11 @@ const cx = classnames.bind(styles);
  */
 export const About: React.FC<Props> = ({ className, ...props }: Props) => {
   return (
-    <Block name="about" className={cx(styles['about'], className)} {...props}>
-      <div className={styles.content}>
-        <h2>About Me</h2>
+    <>
+      <FoxysLabBanner />
+      <Block name="about" className={cx(styles['about'], className)} {...props}>
+        <div className={styles.content}>
+          <h2>About Me</h2>
 
         <p>
           Im a senior front-end engineer and technical lead, with a focus on
@@ -66,6 +69,7 @@ export const About: React.FC<Props> = ({ className, ...props }: Props) => {
         </ul>
       </div>
     </Block>
+    </>
   );
 };
 
