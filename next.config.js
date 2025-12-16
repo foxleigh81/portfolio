@@ -2,12 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  webpack: function (config) {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'markdown-loader'
-    });
-    return config;
+  turbopack: {
+    rules: {
+      '*.md': ['markdown-loader']
+    }
   },
   sassOptions: {
     quietDeps: true,
