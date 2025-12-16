@@ -10,7 +10,6 @@ const meta: Meta<typeof Masthead> = {
   },
   args: {
     miniMeVariant: 'available',
-    date: '2027-12-02'
   },
   argTypes: {
     miniMeVariant: {
