@@ -9,8 +9,7 @@ const meta: Meta<typeof Masthead> = {
     previewLayout: 'vertical'
   },
   args: {
-    miniMeVariant: 'available',
-    date: '2027-12-02'
+    miniMeVariant: 'available'
   },
   argTypes: {
     miniMeVariant: {
