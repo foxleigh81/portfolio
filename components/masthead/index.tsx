@@ -19,7 +19,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
    * The mini-me to use
    */
   miniMeVariant?: (typeof miniMeVariants)[number];
-
 }
 /**
  * The Masthead component is used to display the top section of the page

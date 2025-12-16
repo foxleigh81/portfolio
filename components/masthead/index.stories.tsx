@@ -9,7 +9,7 @@ const meta: Meta<typeof Masthead> = {
     previewLayout: 'vertical'
   },
   args: {
-    miniMeVariant: 'available',
+    miniMeVariant: 'available'
   },
   argTypes: {
     miniMeVariant: {
